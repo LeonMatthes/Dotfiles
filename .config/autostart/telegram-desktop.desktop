@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=telegram-desktop -startintray
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Telegram
+Name=Telegram
+Comment[en_US]=Starts Telegram Desktop in system tray
+Comment=Starts Telegram Desktop in system tray

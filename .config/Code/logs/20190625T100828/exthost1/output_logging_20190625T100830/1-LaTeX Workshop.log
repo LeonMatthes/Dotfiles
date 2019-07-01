@@ -1,0 +1,163 @@
+[10:08:30] Initializing LaTeX Workshop.
+[10:08:30] Creating LaTeX Workshop http and websocket server.
+[10:08:30] LaTeX Workshop initialized.
+[10:08:31] Server created on 127.0.0.1:35709
+[10:08:31] Snippet data loaded.
+[10:08:31] LaTeX Workshop version: 7.0.2
+[10:08:31] Try root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.fls to compute dependencies
+[10:08:31] Try root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Pakete.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/smalltalkEnv.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Befehle.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/01_Einleitung.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/02_Motivation.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/03_Hintergrund.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/04_Integration.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Versionierung.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/xx_Anhang.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/smalltalkEnv.tex
+[10:08:31] Found root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:31] Root file changed from: undefined. Find all dependencies.
+[10:08:31] Instantiating a new file watcher for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Pakete.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Pakete.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/smalltalkEnv.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/smalltalkEnv.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Befehle.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Befehle.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/01_Einleitung.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/01_Einleitung.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/02_Motivation.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/02_Motivation.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/03_Hintergrund.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/03_Hintergrund.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/04_Integration.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/04_Integration.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Versionierung.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Versionierung.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/xx_Anhang.tex to file watcher.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/xx_Anhang.tex
+[10:08:31] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:08:31] Creating file watcher for .bib files.
+[10:08:31] Adding .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib to bib file watcher.
+[10:08:31] Parsing .bib entries from /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:08:31] Parsed 6 .bib entries from /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib.
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:08:31] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/smalltalkEnv.tex
+[10:08:31] Adding /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Ressourcen/filetree/Playground.package/MyClass.class/instance/myInstanceMethod.st to file watcher.
+[10:08:31] Adding /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc to file watcher.
+[10:08:31] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:08:31] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:08:49] VIEW command invoked.
+[10:08:49] Try root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.tex
+[10:08:49] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.tex
+[10:08:49] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Outline/outline.fls to compute dependencies
+[10:08:49] Try root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:49] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:49] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:08:49] Found root file in root directory: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:08:49] Root file remains unchanged from: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:08:49] Serving PDF file at http://localhost:35709/viewer.html?file=/pdf:%252Fmedia%252Fleon%252FWindows%252FDocuments%2520and%2520Settings%252FLeon%252FMy%2520Documents%252FLeons%2520Dokumente%252FHPI%252F18_WiSe%252FBP%252FBachelorarbeit%252FBachelorarbeit%252Fmain.pdf
+[10:08:49] Open PDF tab for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:08:49] Handle data type: open
+[10:08:49] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:08:49] Handle data type: loaded
+[10:19:08] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:19:08] File watcher: responding to change in /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:19:08] /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex changed. Auto build project.
+[10:19:08] BUILD command invoked.
+[10:19:08] Building root file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:19:08] Build root file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:19:08] Recipe step 1: latexmk, -synctex=1,-interaction=nonstopmode,-file-line-error,-pdf,-outdir=/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit,/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main
+[10:19:08] LaTeX build process spawned. PID: 17124.
+[10:19:11] LaTeX log parsed with 12 messages.
+[10:19:11] Recipe of length 1 finished. PID: 17124.
+[10:19:11] Successfully built /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:19:11] Refresh PDF viewer for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:19:11] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:19:11] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:19:11] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:19:11] Handle data type: position
+[10:19:11] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:19:12] Handle data type: loaded
+[10:34:09] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:34:09] File watcher: responding to change in /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:34:09] /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex changed. Auto build project.
+[10:34:09] BUILD command invoked.
+[10:34:09] Building root file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:34:09] Build root file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:34:09] Recipe step 1: latexmk, -synctex=1,-interaction=nonstopmode,-file-line-error,-pdf,-outdir=/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit,/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main
+[10:34:09] LaTeX build process spawned. PID: 20464.
+[10:34:11] LaTeX log parsed with 12 messages.
+[10:34:11] Recipe of length 1 finished. PID: 20464.
+[10:34:11] Successfully built /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:34:11] Refresh PDF viewer for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:34:11] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:34:11] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:34:11] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:34:11] Handle data type: position
+[10:34:11] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:34:11] Handle data type: loaded
+[10:38:32] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:38:32] File watcher: responding to change in /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:38:32] /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex changed. Auto build project.
+[10:38:32] BUILD command invoked.
+[10:38:32] Building root file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:38:32] Build root file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:38:32] Recipe step 1: latexmk, -synctex=1,-interaction=nonstopmode,-file-line-error,-pdf,-outdir=/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit,/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main
+[10:38:32] LaTeX build process spawned. PID: 21182.
+[10:38:33] LaTeX log parsed with 12 messages.
+[10:38:33] Recipe of length 1 finished. PID: 21182.
+[10:38:33] Successfully built /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:38:33] Refresh PDF viewer for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:38:33] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:38:33] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:38:33] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:38:33] Handle data type: position
+[10:38:33] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:38:34] Handle data type: loaded
+[10:40:28] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:40:28] File watcher: responding to change in /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:40:28] /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex changed. Auto build project.
+[10:40:28] BUILD command invoked.
+[10:40:28] Building root file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:40:28] Build root file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:40:28] Recipe step 1: latexmk, -synctex=1,-interaction=nonstopmode,-file-line-error,-pdf,-outdir=/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit,/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main
+[10:40:28] LaTeX build process spawned. PID: 21303.
+[10:40:30] LaTeX log parsed with 12 messages.
+[10:40:30] Recipe of length 1 finished. PID: 21303.
+[10:40:30] Successfully built /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:40:30] Refresh PDF viewer for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:40:30] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:40:30] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:40:30] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:40:30] Handle data type: position
+[10:40:30] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:40:30] Handle data type: loaded
+[10:40:38] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:40:38] File watcher: responding to change in /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex
+[10:40:38] /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Inhalt/05_Serialisierung.tex changed. Auto build project.
+[10:40:38] BUILD command invoked.
+[10:40:38] Building root file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:40:38] Build root file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex
+[10:40:38] Recipe step 1: latexmk, -synctex=1,-interaction=nonstopmode,-file-line-error,-pdf,-outdir=/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit,/media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main
+[10:40:38] LaTeX build process spawned. PID: 21316.
+[10:40:41] LaTeX log parsed with 12 messages.
+[10:40:41] Recipe of length 1 finished. PID: 21316.
+[10:40:41] Successfully built /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.tex.
+[10:40:41] Refresh PDF viewer for /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:40:41] Parsing /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.fls to compute dependencies
+[10:40:41] Found .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib
+[10:40:41] .bib file /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/Bibliographie.bib is already being watched.
+[10:40:41] Handle data type: position
+[10:40:41] Preview PDF file: /media/leon/Windows/Documents and Settings/Leon/My Documents/Leons Dokumente/HPI/18_WiSe/BP/Bachelorarbeit/Bachelorarbeit/main.pdf
+[10:40:41] Handle data type: loaded
+[18:59:08] Handle data type: close

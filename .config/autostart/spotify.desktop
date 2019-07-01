@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=spotify & xdotool search --sync --onlyvisible --class "spotify" windowminimize
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=spotify
+Name=spotify
+Comment[en_US]=Opens Spotify minimized
+Comment=Opens Spotify minimized
