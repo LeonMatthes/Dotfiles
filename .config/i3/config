@@ -44,12 +44,13 @@ workspace_auto_back_and_forth yes
 ################################################
 ###### Custom Quitting dialog
 ################################################
-set $mode_power [l]ogoff | [s]uspend | [r]eboot  | [p]oweroff
+set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [l]ock
 mode "$mode_power" {
-        bindsym l exec i3-msg "mode 'default'" && i3-msg exit
-        bindsym s exec i3-msg "mode 'default'" && systemctl suspend
-        bindsym r exec i3-msg "mode 'default'" && reboot
-        bindsym p exec i3-msg "mode 'default'" && systemctl poweroff
+        bindsym o mode "default"; exec i3-msg exit
+        bindsym s mode "default"; exec ~/.config/i3/lock-screen.sh; exec systemctl suspend
+        bindsym r mode "default"; exec reboot
+        bindsym p mode "default"; exec systemctl poweroff
+	bindsym l mode "default"; exec ~/.config/i3/lock-screen.sh
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -114,6 +115,11 @@ for_window [class="Telegram"] move to workspace "9:Mail"
 # move workspace between outputs
 bindsym $mod+ctrl+j move workspace to output left
 bindsym $mod+ctrl+semicolon move workspace to output right
+
+# Window swapping
+bindsym $mod+m mark --toggle target
+bindsym $mod+n swap container with mark target
+bindsym $mod+b move container to mark target
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
