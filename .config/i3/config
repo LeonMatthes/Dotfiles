@@ -69,9 +69,6 @@ exec_always workspace $ws2 output eDP-1-1
 exec_always xrandr --output HDMI-0 --auto --left-of eDP-1-1
 exec xrandr --output eDP-1-1 --mode 1920x1080
 
-# Set background image
-exec_always sh ~/.fehbg
-
 # Fix trackpad
 # Enable tapping
 exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 328 1
@@ -301,3 +298,6 @@ bar {
 		urgent_workspace		$urgent-bg-color		$urgent-bg-color		$text-color
 	}
 }
+
+# Set background image
+exec_always sh ~/.fehbg
