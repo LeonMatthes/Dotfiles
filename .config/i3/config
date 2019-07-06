@@ -80,8 +80,8 @@ exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 306 1
 exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 313 1
 
 # Fix keyboard
-# Enable compose key
-exec_always setxkbmap -layout us -option compose:ralt
+# Enable compose key and set caps as super
+exec_always setxkbmap -layout us -option compose:ralt -option caps:super
 
 ######### start default apps
 ### status applications
@@ -114,9 +114,6 @@ for_window [tiling] border pixel 3
 ################################################
 ######	Custom keybindings
 ################################################
-
-# Caps as super key
-setxkbmap -option caps:super
 
 # move workspace between outputs
 bindsym $mod+ctrl+j move workspace to output left
@@ -214,7 +211,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Ctrl+space floating toggle
+bindsym $mod+Ctrl+space floating toggle; [floating] border normal 5; [tiling] border pixel 3
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -283,17 +280,24 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-default_border pixel 3
+default_border pixel 2
 default_floating_border normal 3
 hide_edge_borders smart
 
-set $bg-color					#4b5162
-set $inactive-bg-color			#383c4a
+# enable i3-gaps
+# for_window [class=".*"] border pixel 0
+gaps inner 5
+gaps outer 5
+
+
+set $bg-color					#5294e2
+#set $inactive-bg-color			#383c4a
+set $inactive-bg-color			#00000000
 set $text-color					#f3f4f5
 set $inactive-text-color		#676E7D
 set $urgent-bg-color			#E53935
 
-set $indicator-color			#5294e2
+set $indicator-color			#1ab038
 
 # window colors
 #							border                         background			text					indicator
@@ -307,7 +311,7 @@ client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color 			$indicator-c
 bar {
 	status_command SCRIPT_DIR=~/.config/i3blocks i3blocks -c ~/.config/i3blocks/config
 	position top
-	font pango:FontAwesome 10
+	font pango:FontAwesome 8
 	colors {
 		background $inactive-bg-color
 		separator #757575
