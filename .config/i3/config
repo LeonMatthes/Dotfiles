@@ -61,28 +61,35 @@ bindsym $mod+Shift+e mode "$mode_power"
 ###### custom startup scripts
 ################################################
 
+# i3-gnome
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id gnome-flashback
+
 # assign workspaces to monitors
 exec_always workspace $ws1 output HDMI-0 eDP-1-1
 exec_always workspace $ws2 output eDP-1-1
 
+####	This is all handled by i3-gnome now!!!
 # Fix monitor setup
-exec_always xrandr --output HDMI-0 --auto --left-of eDP-1-1
-exec xrandr --output eDP-1-1 --mode 1920x1080
-exec xsettingsd
+#exec_always xrandr --output HDMI-0 --auto --left-of eDP-1-1
+#exec xrandr --output eDP-1-1 --mode 1920x1080
+
 
 # Fix trackpad
 # Enable tapping
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 328 1
+#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 328 1
 # Set accelleration speed
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 315 0.3
+#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 315 0.3
 # Enable natural scrolling
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 306 1
+#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 306 1
 # Middle Click Emulation
-exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 313 1
+#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 313 1
 
 # Fix keyboard
 # Enable compose key and set caps as super
-exec_always setxkbmap -layout us -option compose:ralt -option caps:super
+exec_always setxkbmap -option caps:super
 
 ######### start default apps
 ### status applications
@@ -92,8 +99,9 @@ exec nm-applet
 # sound applet
 # no longer necessary, i3blocks can handle that
 # exec pasystray
+
 # window compositor
-exec compton -f -I 0.05 -O 0.05 --inactive-dim 0.3
+exec compton -f -I 0.05 -O 0.05 --inactive-dim 0.2
 
 
 ### Start apps
@@ -167,6 +175,7 @@ bindsym $mod+d exec rofi -show drun
 
 # Windows+tab with rofi
 bindsym $mod+Tab exec rofi -show window
+bindsym Alt+Tab exec rofi -show window
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -292,8 +301,8 @@ gaps outer 5
 
 
 set $bg-color					#5294e2
-#set $inactive-bg-color			#383c4a
-set $inactive-bg-color			#00000000
+set $inactive-bg-color			#383c4a
+#set $inactive-bg-color			#00000000
 set $text-color					#f3f4f5
 set $inactive-text-color		#676E7D
 set $urgent-bg-color			#E53935
@@ -324,4 +333,5 @@ bar {
 }
 
 # Set background image
-exec_always sh ~/.fehbg
+# also handled by i3-gnome now
+#exec_always sh ~/.fehbg
