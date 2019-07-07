@@ -68,6 +68,7 @@ exec_always workspace $ws2 output eDP-1-1
 # Fix monitor setup
 exec_always xrandr --output HDMI-0 --auto --left-of eDP-1-1
 exec xrandr --output eDP-1-1 --mode 1920x1080
+exec xsettingsd
 
 # Fix trackpad
 # Enable tapping
@@ -92,7 +93,7 @@ exec nm-applet
 # no longer necessary, i3blocks can handle that
 # exec pasystray
 # window compositor
-exec compton -f -I 0.05 -O 0.05
+exec compton -f -I 0.05 -O 0.05 --inactive-dim 0.3
 
 
 ### Start apps
