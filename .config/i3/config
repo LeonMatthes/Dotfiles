@@ -39,6 +39,10 @@ set $ws8 number "8"
 set $ws9 number "9"
 set $ws10 number "10"
 
+set $default_border_width 3
+set $emphasis_border_width 10
+set $floating_border_width 3
+
 workspace_auto_back_and_forth yes
 
 ################################################
@@ -68,8 +72,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id gnome-flashback
 
 # assign workspaces to monitors
-exec_always workspace $ws1 output HDMI-0 eDP-1-1
-exec_always workspace $ws2 output eDP-1-1
+exec_always i3-msg 'workspace number "1" output HDMI-0 eDP-1-1'
+exec_always i3-msg 'workspace number "2" output eDP-1-1'
 
 ####	This is all handled by i3-gnome now!!!
 # Fix monitor setup
@@ -89,7 +93,7 @@ exec_always workspace $ws2 output eDP-1-1
 
 # Fix keyboard
 # Enable compose key and set caps as super
-exec_always setxkbmap -option caps:super
+exec_always --no-startup-id setxkbmap -option caps:super
 
 ######### start default apps
 ### status applications
@@ -129,7 +133,9 @@ bindsym $mod+ctrl+j move workspace to output left
 bindsym $mod+ctrl+semicolon move workspace to output right
 
 # Window swapping
-bindsym $mod+m mark --toggle target
+bindsym $mod+m mark --toggle target;\
+	[tiling] border pixel $default_border_width;\
+	[con_mark="target"] border pixel $emphasis_border_width
 bindsym $mod+n swap container with mark target
 bindsym $mod+b move container to mark target
 
@@ -171,11 +177,11 @@ bindsym $mod+q kill
 # bindsym $mod+d exec dmenu_run
 
 # Use rofi instead of dmenu
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Windows+tab with rofi
-bindsym $mod+Tab exec rofi -show window
-bindsym Alt+Tab exec rofi -show window
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym Alt_L+Tab exec --no-startup-id rofi -show window
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -221,7 +227,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Ctrl+space floating toggle; [floating] border normal 5; [tiling] border pixel 3
+bindsym $mod+Ctrl+space floating toggle; [floating] border normal $floating_border_width; [tiling] border pixel $default_border_width
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -290,8 +296,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-default_border pixel 2
-default_floating_border normal 3
+default_border pixel $default_border_width
+default_floating_border normal $floating_border_width
 hide_edge_borders smart
 
 # enable i3-gaps
@@ -320,8 +326,8 @@ client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color 			$indicator-c
 # finds out, if available)
 bar {
 	status_command SCRIPT_DIR=~/.config/i3blocks i3blocks -c ~/.config/i3blocks/config
+	tray_output primary
 	position top
-	font pango:FontAwesome 8
 	colors {
 		background $inactive-bg-color
 		separator #757575
