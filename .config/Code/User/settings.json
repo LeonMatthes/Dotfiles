@@ -1,0 +1,22 @@
+{
+    "latex-workshop.view.pdf.viewer": "tab",
+    "[latex]": {
+        "editor.wordWrap": "on"
+    },
+    "editor.minimap.enabled": true,
+    
+    //Better spellchecking
+    "cSpell.language": "de,en",
+    "cSpell.diagnosticLevel": "Hint", //do not show up in problems panel
+    "workbench.colorCustomizations": {
+
+        // will change the color of three dots to yellow
+        "editorHint.foreground": "#cccc22"
+    },
+
+
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false
+}
+

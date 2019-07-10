@@ -51,7 +51,7 @@ workspace_auto_back_and_forth yes
 set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [l]ock
 mode "$mode_power" {
         bindsym o mode "default"; exec i3-msg exit
-        bindsym s mode "default"; exec ~/.config/i3/lock-screen.sh; exec systemctl suspend
+        bindsym s mode "default"; exec systemctl suspend
         bindsym r mode "default"; exec reboot
         bindsym p mode "default"; exec systemctl poweroff
 	bindsym l mode "default"; exec ~/.config/i3/lock-screen.sh
@@ -92,7 +92,7 @@ exec_always i3-msg 'workspace number "2" output eDP-1-1'
 #exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 313 1
 
 # Fix keyboard
-# Enable compose key and set caps as super
+# set caps as super
 exec_always --no-startup-id setxkbmap -option caps:super
 
 ######### start default apps
