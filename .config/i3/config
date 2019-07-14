@@ -113,10 +113,10 @@ exec --no-startup-id spotify
 exec --no-startup-id thunderbird
 exec --no-startup-id telegram-desktop
 
-for_window [class=Spotify] move to workspace "10:Spotify"
+for_window [class=Spotify] move to workspace "10:"
 
-for_window [class=Thunderbird] move to workspace "9:Mail"
-for_window [class=Telegram] move to workspace "9:Mail"
+for_window [class=Thunderbird] move to workspace "9:"
+for_window [class=Telegram] move to workspace "9:"
 
 # Make Thunderbird new message window floating
 for_window [instance=Msgcompose] floating enable
