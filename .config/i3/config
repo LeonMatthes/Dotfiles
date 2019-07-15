@@ -113,10 +113,10 @@ exec --no-startup-id spotify
 exec --no-startup-id thunderbird
 exec --no-startup-id telegram-desktop
 
-for_window [class=Spotify] move to workspace 10
+for_window [class=Spotify] move to workspace number 10
 
-for_window [class=Thunderbird] move to workspace 9
-for_window [class=Telegram] move to workspace 9
+for_window [class=Thunderbird] move to workspace number 9
+for_window [class=Telegram] move to workspace number 9
 
 # Make Thunderbird new message window floating
 for_window [instance=Msgcompose] floating enable
@@ -125,7 +125,7 @@ for_window [floating] border normal 3
 for_window [tiling] border pixel 3
 
 # Autrename workspaces
-exec_always ~/Documents/software/i3scripts/autoname_workspaces.py --norenumber_workspaces &
+exec_always ~/Documents/software/i3scripts/autoname_workspaces.py --norenumber_workspaces > ~/Documents/software/i3scripts/autoname.log &
 
 ################################################
 ######	Custom keybindings

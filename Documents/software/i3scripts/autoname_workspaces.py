@@ -54,7 +54,7 @@ WINDOW_ICONS = {
     'banshee': fa.icons['play'],
     'blender': fa.icons['cube'],
     'chromium': fa.icons['chrome'],
-    'code': fa.icons['file-code'],
+    'code': fa.icons['code'],
     'cura': fa.icons['cube'],
     'darktable': fa.icons['image'],
     'discord': fa.icons['comment'],
@@ -69,8 +69,11 @@ WINDOW_ICONS = {
     'firefox': fa.icons['firefox'],
     'firefox-esr': fa.icons['firefox'],
     'gimp-2.8': fa.icons['image'],
-    'gnome-control-center': fa.icons['toggle-on'],
+    'gnome-calculator': fa.icons['calculator'],
+    'gnome-control-center': fa.icons['cogs'],
+    'gnome-system-monitor': fa.icons['chart-area'],
     'gnome-terminal-server': fa.icons['terminal'],
+    'gnome-tweaks': fa.icons['toggle-on'],
     'google-chrome': fa.icons['chrome'],
     'gpick': fa.icons['eye-dropper'],
     'imv': fa.icons['image'],
@@ -90,7 +93,7 @@ WINDOW_ICONS = {
     'nemo': fa.icons['copy'],
     'openscad': fa.icons['cube'],
     'org.gnome.gedit': fa.icons['file-signature'],
-    'org.gnome.Nautilus': fa.icons['folder'],
+    'org.gnome.nautilus': fa.icons['folder'],
     'pavucontrol': fa.icons['volume-up'],
     'postman': fa.icons['space-shuttle'],
     'rhythmbox': fa.icons['play'],
@@ -116,7 +119,7 @@ WINDOW_ICONS = {
 }
 
 # This icon is used for any application not in the list above
-DEFAULT_ICON = '?'
+DEFAULT_ICON = fa.icons['question']
 
 # Global setting that determines whether workspaces will be automatically
 # re-numbered in ascending order with a "gap" left on each monitor. This is
