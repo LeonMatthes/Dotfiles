@@ -10,13 +10,14 @@
     "cSpell.diagnosticLevel": "Hint", //do not show up in problems panel
     "workbench.colorCustomizations": {
 
-        // will change the color of three dots to yellow
-        "editorHint.foreground": "#cccc22"
+        // will change the color of three dots
+        "editorHint.foreground": "#22cc22"
     },
 
 
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "window.zoomLevel": 0
 }
 
