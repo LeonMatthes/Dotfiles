@@ -108,7 +108,7 @@ WINDOW_ICONS = {
     'squeak': fa.icons['fly'],
     'telegram': fa.icons['telegram'],
     'thunar': fa.icons['copy'],
-    'thunderbird': fa.icons['envelope'],
+    'thunderbird': fa.icons['envelope-open-text'],
     'totem': fa.icons['play'],
     'urxvt': fa.icons['terminal'],
     'xfce4-terminal': fa.icons['terminal'],

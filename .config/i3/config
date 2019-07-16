@@ -124,6 +124,22 @@ for_window [instance=Msgcompose] floating enable
 for_window [floating] border normal 3
 for_window [tiling] border pixel 3
 
+# Open floating terminal to move to scratchpad
+for_window [window_role="ScratchTerminal"] floating enable
+for_window [window_role="ScratchTerminal"] resize set 700 500
+for_window [window_role="ScratchTerminal"] move scratchpad
+exec --no-startup-id gnome-terminal --role=ScratchTerminal
+
+bindsym $mod+t [window_role="ScratchTerminal"] scratchpad show; [window_role="ScratchTerminal"] move position center
+
+# Open floating file explorer to move to scratchpad
+#for_window [instance="ScratchNautilus"] floating enable
+#for_window [instance="ScratchNautilus"] resize set 700 500
+#for_window [instance="ScratchNautilus"] move scratchpad
+#exec --no-startup-id nautilus --new-window --name=ScratchNautilus
+
+bindsym $mod+y [instance="ScratchNautilus"] scratchpad show; [instance="ScratchNautilus"] move position center
+
 # Autrename workspaces
 exec_always ~/Documents/software/i3scripts/autoname_workspaces.py --norenumber_workspaces > ~/Documents/software/i3scripts/autoname.log &
 
