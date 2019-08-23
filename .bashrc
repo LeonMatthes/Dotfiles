@@ -115,4 +115,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 alias dotfiles='/usr/bin/git --git-dir=/home/leon/.dotfiles/ --work-tree=/home/leon'
+
+# Enable powerline as the bash prompt
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /home/leon/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
