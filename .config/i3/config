@@ -105,7 +105,7 @@ exec nm-applet
 # exec pasystray
 
 # window compositor
-exec compton -f -I 0.05 -O 0.05 --inactive-dim 0.2
+exec compton
 
 
 ### Start apps
@@ -126,7 +126,7 @@ for_window [tiling] border pixel 3
 
 # Open floating terminal to move to scratchpad
 for_window [window_role="ScratchTerminal"] floating enable
-for_window [window_role="ScratchTerminal"] resize set 700 500
+for_window [window_role="ScratchTerminal"] resize set 1000 700
 for_window [window_role="ScratchTerminal"] move scratchpad
 exec --no-startup-id gnome-terminal --role=ScratchTerminal
 bindsym $mod+Shift+t exec --no-startup-id gnome-terminal --role=ScratchTerminal
@@ -135,7 +135,7 @@ bindsym $mod+t [window_role="ScratchTerminal"] scratchpad show; [window_role="Sc
 
 # Open floating file explorer to move to scratchpad
 for_window [title="ScratchHome"] floating enable
-for_window [title="ScratchHome"] resize set 700 500
+for_window [title="ScratchHome"] resize set 1000 700
 for_window [title="ScratchHome"] move scratchpad
 for_window [title="ScratchHome"] mark ScratchNautilus
 
