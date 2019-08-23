@@ -72,37 +72,15 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id gnome-flashback
 
 # assign workspaces to monitors
-exec_always i3-msg 'workspace number "1" output HDMI-0 eDP-1-1'
-exec_always i3-msg 'workspace number "2" output eDP-1-1'
+exec_always i3-msg 'workspace number "1" output eDP-1-1'
+exec_always i3-msg 'workspace number "2" output HDMI-0 eDP-1-1'
 
-####	This is all handled by i3-gnome now!!!
-# Fix monitor setup
-#exec_always xrandr --output HDMI-0 --auto --left-of eDP-1-1
-#exec xrandr --output eDP-1-1 --mode 1920x1080
-
-
-# Fix trackpad
-# Enable tapping
-#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 328 1
-# Set accelleration speed
-#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 315 0.3
-# Enable natural scrolling
-#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 306 1
-# Middle Click Emulation
-#exec_always xinput set-prop "ETPS/2 Elantech Touchpad" 313 1
-
-# Fix keyboard
-# set caps as super
-# exec_always --no-startup-id setxkbmap -option caps:super
 
 ######### start default apps
 ### status applications
 # bluetooth and network
 exec blueman-applet
 exec nm-applet
-# sound applet
-# no longer necessary, i3blocks can handle that
-# exec pasystray
 
 # window compositor
 exec compton

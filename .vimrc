@@ -89,3 +89,9 @@ highlight CursorLine guibg=#404040 ctermbg=244
 
 "Enable line numbers
 set number
+
+" Enable statusline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2
