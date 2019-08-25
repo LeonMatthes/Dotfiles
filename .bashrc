@@ -116,10 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# custom aliases
 alias dotfiles='/usr/bin/git --git-dir=/home/leon/.dotfiles/ --work-tree=/home/leon'
+alias vimrc='vim ~/.vimrc'
 
 # Enable powerline as the bash prompt
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /home/leon/.local/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+
+# added by travis gem
+[ -f /home/leon/.travis/travis.sh ] && source /home/leon/.travis/travis.sh

@@ -17,6 +17,10 @@ endif
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
+silent !mkdir -p  ~/.vimtmp
+set backupdir=~/.vimtmp//,.
+set directory=~/.vimtmp//,.
+set undodir=~/.vimtmp//,.
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
@@ -76,7 +80,7 @@ if (has("termguicolors"))
 endif
 
 syntax enable
-colorscheme tender 
+colorscheme tchaba
 hi Normal guibg=NONE ctermbg=NONE
 
 
@@ -95,3 +99,7 @@ python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 set laststatus=2
+
+" Set indentation to 4 spaces without expanding tabs
+set shiftwidth=4
+set tabstop=4
