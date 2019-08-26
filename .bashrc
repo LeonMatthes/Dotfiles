@@ -119,6 +119,7 @@ fi
 # custom aliases
 alias dotfiles='/usr/bin/git --git-dir=/home/leon/.dotfiles/ --work-tree=/home/leon'
 alias vimrc='vim ~/.vimrc'
+alias rm='echo "This is not the command you are looking for.";echo "Use <trash FILE> instead"; false'
 
 # Enable powerline as the bash prompt
 powerline-daemon -q

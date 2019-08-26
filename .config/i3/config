@@ -50,13 +50,13 @@ workspace_auto_back_and_forth yes
 ################################################
 set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [l]ock
 mode "$mode_power" {
-        bindsym o mode "default"; exec i3-msg exit
-        bindsym s mode "default"; exec systemctl suspend
-        bindsym r mode "default"; exec reboot
-        bindsym p mode "default"; exec systemctl poweroff
+	bindsym o mode "default"; exec i3-msg exit
+	bindsym s mode "default"; exec systemctl suspend
+	bindsym r mode "default"; exec reboot
+	bindsym p mode "default"; exec systemctl poweroff
 	bindsym l mode "default"; exec ~/.config/i3/lock-screen.sh
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 bindsym --release XF86PowerOff mode "$mode_power"
 bindsym $mod+Shift+e mode "$mode_power"
@@ -89,12 +89,14 @@ exec compton
 ### Start apps
 exec --no-startup-id spotify
 exec --no-startup-id thunderbird
-exec --no-startup-id telegram-desktop
+# exec --no-startup-id telegram-desktop
+exec --no-startup-id geary
 
 for_window [class=Spotify] move to workspace number 10
 
 for_window [class=Thunderbird] move to workspace number 9
 for_window [class=Telegram] move to workspace number 9
+for_window [class=Geary] move to workspace number 9
 
 # Make Thunderbird new message window floating
 for_window [instance=Msgcompose] floating enable
