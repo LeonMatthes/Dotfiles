@@ -88,8 +88,8 @@ exec compton
 
 ### Start apps
 exec --no-startup-id spotify
-exec --no-startup-id thunderbird
-# exec --no-startup-id telegram-desktop
+# exec --no-startup-id thunderbird
+exec --no-startup-id telegram-desktop
 exec --no-startup-id geary
 
 for_window [class=Spotify] move to workspace number 10

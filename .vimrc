@@ -63,43 +63,7 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-" --------------------- CUSTOM COMMANDS -----------------
-" Enable backspace in insert mode
-set bs=2
-
-" Enable vim-plug and list plugins
-call plug#begin('~/.vim/plugged')
-
-Plug 'jacoborus/tender.vim'
-
-call plug#end()
-
-" Set color sheme and general ricing
-if (has("termguicolors"))
- set termguicolors
-endif
-
-syntax enable
-colorscheme tchaba
-hi Normal guibg=NONE ctermbg=NONE
-
-
-"Enable line highlighting for the cursor
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#404040 ctermbg=244
-
-"Enable line numbers
-set number
-
-" Enable statusline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-set laststatus=2
-
-" Set indentation to 4 spaces without expanding tabs
-set shiftwidth=4
-set tabstop=4
+source ~/.vim/settings.vim
+source ~/.vim/plugins.vim
+source ~/.vim/appearence.vim
+source ~/.vim/remapping.vim
