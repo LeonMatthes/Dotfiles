@@ -142,6 +142,12 @@ bindsym $mod+m mark --toggle target;\
 bindsym $mod+n swap container with mark target
 bindsym $mod+b move container to mark target
 
+# Scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # Screenshots
 bindsym Print exec scrot '/home/leon/Pictures/Screenshots/%Y-%m-%d_$wx$h.png' -e 'notify-send --icon=$f "Screenshot $n saved" "$f"'
 bindsym Ctrl+Print exec gnome-screenshot -i
