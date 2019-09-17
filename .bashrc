@@ -129,3 +129,10 @@ POWERLINE_BASH_SELECT=1
 
 # added by travis gem
 [ -f /home/leon/.travis/travis.sh ] && source /home/leon/.travis/travis.sh
+
+# VectorCast installation and aliases
+export VECTOR_LICENSE_FILE=27000@leonubuntu
+export VECTORCAST_DIR=/usr/local/vcast
+alias vcast='/usr/local/vcast/vcastqt'
+alias vcast_stop='/usr/local/vcast/flexlm/lmutil lmdown -c /usr/local/flexlm/licenses/license.dat'
+alias vcast_license='/usr/local/vcast/flexlm/lmgrd -c /usr/local/flexlm/licenses/license.dat'
