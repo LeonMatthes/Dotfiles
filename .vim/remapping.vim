@@ -37,4 +37,6 @@ map <leader>o :call CurtineIncSw()<CR>
 
 
 " --------------  VISUAL MODE REMAPPS --------------------
+" Allow for direct search of the selected text
 vnoremap / y/<C-R>"
+vnoremap ? y?<C-R>"
