@@ -15,8 +15,9 @@ if v:progname =~? "evim"
 endif
 
 " Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" source $VIMRUNTIME/defaults.vim
 
+" Use different tmp directories to avoid adding a bunch of files everywhere
 silent !mkdir -p  ~/.vimtmp
 set backupdir=~/.vimtmp//,.
 set directory=~/.vimtmp//,.
@@ -60,7 +61,7 @@ endif " has("autocmd")
 " The ! means the package won't be loaded right away but when plugins are
 " loaded during initialization.
 if has('syntax') && has('eval')
-  packadd! matchit
+	"packadd! matchit
 endif
 
 source ~/.vim/settings.vim

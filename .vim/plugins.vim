@@ -2,16 +2,18 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'jacoborus/tender.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'ericcurtin/CurtineIncSw.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
-
 " Enable statusline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 set laststatus=2
