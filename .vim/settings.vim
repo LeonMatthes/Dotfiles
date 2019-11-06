@@ -6,6 +6,9 @@ set bs=2
 " Enable 'ignore case'
 set ic
 
+" Enable incremental search
+set incsearch
+
 "Enable line numbers
 set number
 set relativenumber
