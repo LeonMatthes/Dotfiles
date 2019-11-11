@@ -13,6 +13,8 @@ Plug 'Valloric/YouCompleteMe'
 
 " File handling
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " required by fzf.vim
+Plug 'junegunn/fzf.vim'
 
 " Buffer control
 Plug 'moll/vim-bbye'
@@ -23,19 +25,10 @@ Plug 'Townk/vim-autoclose'
 
 call plug#end()
 
-" ---------------- Enable statusline ------------------
-if(has('python'))
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup()
-  python del powerline_setup
-endif
-
-if(has('python3'))
-  python3 from powerline.vim import setup as powerline_setup
-  python3 powerline_setup()
-  python3 del powerline_setup
-endif
-
+" Enable statusline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 set laststatus=2
 
 " --------------- YouCompleteMe ---------------------
@@ -60,6 +53,28 @@ let g:ycm_allways_populate_location_list = 1
 " --------------- NERDTree --------------------
 nnoremap <leader>t :NERDTreeToggle<CR>
 
+" --------------- FZF -------------------------
+nnoremap <leader>sf :Files<CR>
+nnoremap <leader>sb :Buffers<CR>
+nnoremap <leader>s: :Commands<CR>
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_buffers_jump=1
 
 " --------------- vim-bbye --------------------
 " Bdelete not to be confused with bdelete (see vim-bbye docs)
