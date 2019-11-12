@@ -1,7 +1,6 @@
 " Enable vim-plug and list plugins
 call plug#begin('~/.vim/plugged')
 " Theming
-Plug 'jacoborus/tender.vim'
 Plug 'joshdick/onedark.vim'
 
 " Language support
@@ -10,6 +9,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Valloric/YouCompleteMe'
+Plug 'dense-analysis/ale'
 
 " File handling
 Plug 'scrooloose/nerdtree'
@@ -19,7 +19,6 @@ Plug 'moll/vim-bbye'
 
 " Easer source code editing
 Plug 'scrooloose/nerdcommenter'
-Plug 'Townk/vim-autoclose'
 
 call plug#end()
 
@@ -47,7 +46,6 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>T :YcmCompleter GetType<CR>
 nnoremap <leader>f :YcmCompleter FixIt<CR>
-nnoremap <leader>D :YcmDiags<CR>
 " Other settings
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
@@ -56,6 +54,17 @@ let g:ycm_use_clangd=0
 let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_allways_populate_location_list = 1
 
+" --------------- ALE ----------------
+let g:ale_linters = { 'rust': ['rls', 'rustfmt'] }
+let g:ale_fixers = {
+      \   'rust': [
+      \     'rustfmt'
+      \   ]
+      \ }
+let g:ale_set_balloons = 1
+let g:ale_fix_on_save = 1
+
+nnoremap <leader>D :ALELint<CR>:lopen<CR>
 
 " --------------- NERDTree --------------------
 nnoremap <leader>t :NERDTreeToggle<CR>
