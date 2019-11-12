@@ -1,5 +1,5 @@
 " Set <Space> as leader as it is very easy to press
-let mapleader = " "
+map <Space> <leader>
 
 " <CR><CR> inserts a newline
 " <CR><BS> inserts a newline ontop
