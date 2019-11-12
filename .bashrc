@@ -120,6 +120,7 @@ fi
 alias dotfiles='/usr/bin/git --git-dir=/home/leon/.dotfiles/ --work-tree=/home/leon'
 alias vimrc='vim ~/.vimrc'
 alias rm='echo "This is not the command you are looking for.";echo "Use <trash FILE> instead"; false'
+alias bashrc='vim ~/.bashrc'
 
 # Enable powerline as the bash prompt
 powerline-daemon -q
@@ -136,3 +137,8 @@ export VECTORCAST_DIR=/usr/local/vcast
 alias vcast='/usr/local/vcast/vcastqt'
 alias vcast_stop='/usr/local/vcast/flexlm/lmutil lmdown -c /usr/local/flexlm/licenses/license.dat'
 alias vcast_license='/usr/local/vcast/flexlm/lmgrd -c /usr/local/flexlm/licenses/license.dat'
+
+# enable autojump
+[[ -s /home/leon/.autojump/etc/profile.d/autojump.sh ]] && source /home/leon/.autojump/etc/profile.d/autojump.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -165,8 +165,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks # mute sound
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec backlight_control +10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec backlight_control -10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepUp # increase screen brightness
+bindsym XF86MonBrightnessDown exec gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepDown # decrease screen brightness
 
 
 ###############################################
