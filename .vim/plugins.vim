@@ -3,6 +3,9 @@ call plug#begin('~/.vim/plugged')
 " Theming
 Plug 'joshdick/onedark.vim'
 
+" convenience
+Plug 'machakann/vim-highlightedyank'
+
 " Language support
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'sheerun/vim-polyglot'
@@ -49,13 +52,15 @@ nnoremap <leader>f :YcmCompleter FixIt<CR>
 " Other settings
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_clangd_binary_path="/home/Users/lnm/software/llvm-project/build/bin/clangd"
-let g:ycm_use_clangd=0
-let g:ycm_clangd_uses_ycmd_caching = 0
-let g:ycm_allways_populate_location_list = 1
+" let g:ycm_use_clangd=0
+" let g:ycm_clangd_uses_ycmd_caching = 0
+" let g:ycm_allways_populate_location_list = 1
+
+" Disable diagnostics, ALE's job now
+let g:ycm_show_diagnostics_ui = 0
 
 " --------------- ALE ----------------
-let g:ale_linters = { 'rust': ['rls', 'rustfmt'] }
+let g:ale_linters = { 'rust': ['rls', 'rustfmt'], 'cpp': ['clangcheck'] }
 let g:ale_fixers = {
       \   'rust': [
       \     'rustfmt'
@@ -63,6 +68,7 @@ let g:ale_fixers = {
       \ }
 let g:ale_set_balloons = 1
 let g:ale_fix_on_save = 1
+let g:ale_echo_msg_format = '[%linter%] %s'
 
 nnoremap <leader>D :ALELint<CR>:lopen<CR>
 
