@@ -52,9 +52,6 @@ nnoremap <leader>f :YcmCompleter FixIt<CR>
 " Other settings
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
-" let g:ycm_use_clangd=0
-" let g:ycm_clangd_uses_ycmd_caching = 0
-" let g:ycm_allways_populate_location_list = 1
 
 " Disable diagnostics, ALE's job now
 let g:ycm_show_diagnostics_ui = 0
