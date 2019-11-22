@@ -138,6 +138,8 @@ alias vcast='/usr/local/vcast/vcastqt'
 alias vcast_stop='/usr/local/vcast/flexlm/lmutil lmdown -c /usr/local/flexlm/licenses/license.dat'
 alias vcast_license='/usr/local/vcast/flexlm/lmgrd -c /usr/local/flexlm/licenses/license.dat'
 
+eval $(thefuck --alias)
+
 # enable autojump
 [[ -s /home/leon/.autojump/etc/profile.d/autojump.sh ]] && source /home/leon/.autojump/etc/profile.d/autojump.sh
 
