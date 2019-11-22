@@ -24,6 +24,8 @@ Plug 'moll/vim-bbye'
 
 " Easer source code editing
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
