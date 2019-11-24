@@ -176,8 +176,8 @@ bindsym XF86MonBrightnessDown exec gdbus call --session --dest org.gnome.Setting
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+BackSpace exec i3-sensible-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym --release $mod+BackSpace exec --no-startup-id ~/.config/i3/smart-open-terminal.py
+bindsym --release $mod+Return exec --no-startup-id ~/.config/i3/smart-open-terminal.py
 
 # kill focused window
 bindsym $mod+q kill
