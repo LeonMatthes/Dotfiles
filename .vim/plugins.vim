@@ -22,7 +22,8 @@ Plug 'junegunn/fzf.vim'
 " Buffer control
 Plug 'moll/vim-bbye'
 
-" Easer source code editing
+" Easier source code editing
+Plug 'tpope/vim-sleuth'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'

@@ -26,8 +26,8 @@ nnoremap <leader>r :source ~/.vimrc<CR>:echo "vimrc reloaded!"<CR>
 map <leader>o :call CurtineIncSw()<CR>
 
 " Remappings for Location list
-nnoremap <leader>i :lnext<CR>
-nnoremap <leader>I :lprevious<CR>
+nnoremap <leader>i :lbelow<CR>
+nnoremap <leader>I :labove<CR>
 
 " Tab remaps
 " Intentionally don't add a <CR> to this command, so I have the chance to
@@ -48,7 +48,7 @@ for tabpageindex in range(1,&tabpagemax)
   execute 'nnoremap <C-t>' . tabpageindex . ' ' . tabpageindex . 'gt'
 endfor
 
-" Window navigation
+" Window navigation ^[ is the ALT key
 nnoremap h <C-w>h
 nnoremap j <C-w>j
 nnoremap k <C-w>k
@@ -74,3 +74,4 @@ nnoremap <expr> a IndentWithA()
 " Allow for direct search of the selected text
 vnoremap / y/<C-R>"
 vnoremap ? y?<C-R>"
+vnoremap <C-R> y:%s/<C-R>"//gc<left><left><left>
