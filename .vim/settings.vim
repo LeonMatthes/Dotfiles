@@ -4,7 +4,8 @@
 set bs=2
 
 " Enable 'ignore case'
-set ic
+set ignorecase
+set smartcase
 
 " Enable incremental search
 set incsearch
@@ -32,3 +33,11 @@ set wildmode=longest,full
 " Enable mouse support
 set mouse=a 
 
+
+" Make folds persistent
+" Disabled for now, causes problems with working dir
+" augroup AutoSaveFolds
+  " autocmd!
+  " autocmd BufWinLeave * mkview
+  " autocmd BufWinEnter * silent loadview
+" augroup END
