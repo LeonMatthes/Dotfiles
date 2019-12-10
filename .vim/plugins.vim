@@ -28,6 +28,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
+" Source Control
+Plug 'airblade/vim-gitgutter'
+
+" Easier naviagtion
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
 " Enable statusline
