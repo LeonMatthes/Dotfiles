@@ -34,6 +34,10 @@ Plug 'airblade/vim-gitgutter'
 " Easier naviagtion
 Plug 'justinmk/vim-sneak'
 
+" Tmux integration
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+
 call plug#end()
 
 " Enable statusline
