@@ -70,6 +70,10 @@ function! IndentWithA()
 endfunction
 nnoremap <expr> a IndentWithA()
 
+" Allow window scrolling with Ctrl
+nnoremap <C-j> <C-e>
+nnoremap <C-k> <C-y>
+
 " --------------  VISUAL MODE REMAPPS --------------------
 " Allow for direct search of the selected text
 vnoremap / y/<C-R>"
