@@ -61,14 +61,15 @@ nnoremap L <C-w>L
 
 " Remap insert mode to auto indent on empty line
 " smart indent when entering insert mode with i on empty lines
-function! IndentWithA()
+function! IndentWith(keys)
   if len(getline('.')) == 0
     return "\"_cc"
   else
-    return "a"
+    return a:keys
   endif
 endfunction
-nnoremap <expr> a IndentWithA()
+nnoremap <expr> a IndentWith("a")
+nnoremap <expr> A IndentWith("A")
 
 " Allow window scrolling with Ctrl
 nnoremap <C-j> <C-e>
