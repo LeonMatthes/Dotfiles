@@ -37,6 +37,7 @@ Plug 'justinmk/vim-sneak'
 " Tmux integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -114,3 +115,11 @@ nnoremap <leader>q :Bdelete<CR>
 
 " --------------- NERDcommenter -------------------
 let g:NERDSpaceDelims = 1
+
+" --------------- vim-tmux-navigator -------------
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-a>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-a>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-a>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
