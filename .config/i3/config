@@ -87,7 +87,7 @@ exec compton
 
 
 ### Start apps
-exec --no-startup-id spotify
+exec --no-startup-id spotify --force-device-scale-factor=1.3
 # exec --no-startup-id thunderbird
 exec --no-startup-id telegram-desktop
 exec --no-startup-id geary
@@ -196,8 +196,11 @@ bindsym Alt_L+Tab exec --no-startup-id rofi -show window
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#
+# rebinds caps lock to escape (need to use bindcode here, because reasons)
+bindcode --release 66 exec --no-startup-id xdotool key Escape
 
-# change focus
+# change focus, vim bindings
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -316,14 +319,14 @@ gaps inner 5
 gaps outer 5
 
 
-set $bg-color                   #5294e2
-set $inactive-bg-color          #383c4a
+set $bg-color                   #5e6b77
+set $inactive-bg-color          #172533
 #set $inactive-bg-color         #00000000
-set $text-color                 #f3f4f5
+set $text-color                 #eff3f6
 set $inactive-text-color        #676E7D
-set $urgent-bg-color            #E53935
+set $urgent-bg-color            #df3e3e
 
-set $indicator-color            #1ab038
+set $indicator-color            #84aaf7
 
 # window colors
 #                           border                  background              text                    indicator
@@ -340,7 +343,7 @@ bar {
     position top
     colors {
         background $inactive-bg-color
-        separator #757575
+        separator $inactive-text-color
         #                       border                  background          text
         focused_workspace       $bg-color               $bg-color               $text-color
         inactive_workspace      $inactive-bg-color      $inactive-bg-color      $inactive-text-color
