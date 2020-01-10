@@ -55,9 +55,14 @@ endif
 set laststatus=2
 
 " --------------- YouCompleteMe ---------------------
-" remappings
+" Remappings
+nnoremap <leader>gg :YcmCompleter GoTo<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gt :YcmCompleter GoToType<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>T :YcmCompleter GetType<CR>
-
+nnoremap <leader>f :YcmCompleter FixIt<CR>
 " Other settings
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
@@ -77,13 +82,6 @@ let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[%linter%] %s'
 
 nnoremap <leader>D :ALELint<CR>:lopen<CR>
-
-" Remappings
-nnoremap <leader>gt :ALEGoToTypeDefinition<CR>
-nnoremap <leader>gd :ALEGoToDefinition<CR>
-nnoremap <leader>gr :ALEFindReferences<CR>
-nnoremap <leader>f :ALEFix<CR>
-nnoremap <leader>/ :ALESymbolSearch<Space>
 
 " --------------- NERDTree --------------------
 nnoremap <leader>t :NERDTreeToggle<CR>
