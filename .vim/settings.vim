@@ -33,6 +33,8 @@ set wildmode=longest,full
 " Enable mouse support
 set mouse=a 
 
+" Make ESC not laggy
+set ttimeoutlen=10
 
 " Make folds persistent
 " Disabled for now, causes problems with working dir
