@@ -75,6 +75,9 @@ nnoremap <expr> A IndentWith("A")
 nnoremap <C-j> <C-e>
 nnoremap <C-k> <C-y>
 
+" Allow (K)utting the line
+nnoremap K i<CR><ESC>
+
 " --------------  VISUAL MODE REMAPPS --------------------
 " Allow for direct search of the selected text
 vnoremap / y/<C-R>"
