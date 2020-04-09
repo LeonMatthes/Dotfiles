@@ -1,0 +1,11 @@
+#!/bin/bash
+
+case "$BLOCK_BUTTON" in
+  4) gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepUp>/dev/null;;
+  5) gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepDown>/dev/null;;
+esac
+
+# long_name
+echo $(gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.freedesktop.DBus.Properties.Get org.gnome.SettingsDaemon.Power.Screen Brightness | cut -d '<' -f2 | cut -d '>' -f1)%
+# short_name
+echo ""

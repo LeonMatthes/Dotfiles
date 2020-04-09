@@ -59,6 +59,12 @@ interval=20
 signal=10
 USE_DESCRIPTION=1
 
+# Brightness
+[brightness]
+command=$SCRIPT_DIR/brightness
+label=
+interval=5
+
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
