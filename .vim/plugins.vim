@@ -81,7 +81,12 @@ let g:ale_set_balloons = 1
 let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[%linter%] %s'
 
+" Stops the LSP -> Will automatically restart
+nnoremap <leader>R :ALEStopAllLSPs<CR>
+
 nnoremap <leader>D :ALELint<CR>:lopen<CR>
+nnoremap <leader>i :ALENext<CR>
+nnoremap <leader>I :ALEPrevious<CR>
 
 " --------------- NERDTree --------------------
 nnoremap <leader>t :NERDTreeToggle<CR>

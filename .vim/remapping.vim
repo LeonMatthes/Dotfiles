@@ -26,8 +26,8 @@ nnoremap <leader>r :source ~/.vimrc<CR>:echo "vimrc reloaded!"<CR>
 map <leader>o :call CurtineIncSw()<CR>
 
 " Remappings for Location list
-nnoremap <leader>i :lbelow<CR>
-nnoremap <leader>I :labove<CR>
+" nnoremap <leader>i :lbelow<CR>
+" nnoremap <leader>I :labove<CR>
 
 " Tab remaps
 " Intentionally don't add a <CR> to this command, so I have the chance to
