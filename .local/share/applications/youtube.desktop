@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=YouTube
+Comment=Fullscreen YouTube
+Exec=chromium --app=https://youtube.com %U
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=youtube
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+StartupWMClass=chromium
+X-AppInstall-Package=chromium-browser
