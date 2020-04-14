@@ -90,7 +90,7 @@ exec compton
 exec --no-startup-id spotify
 # exec --no-startup-id thunderbird
 exec --no-startup-id telegram-desktop
-exec --no-startup-id geary
+exec --no-startup-id flatpak run org.gnome.Geary
 
 for_window [class=Spotify] move to workspace number 10
 
