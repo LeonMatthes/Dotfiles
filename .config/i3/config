@@ -79,13 +79,15 @@ exec blueman-applet
 exec nm-applet
 
 # window compositor
-exec compton
+exec picom --experimental-backends || compton
+exec unclutter
 
 
 ### Start apps
-exec --no-startup-id flatpak run com.spotify.Client | spotify
+exec --no-startup-id nextcloud-client
+exec --no-startup-id flatpak run com.spotify.Client || spotify
 exec --no-startup-id telegram-desktop
-exec --no-startup-id flatpak run org.gnome.Geary | geary
+exec --no-startup-id flatpak run org.gnome.Geary || geary
 
 for_window [class=Spotify] move to workspace number 10
 
@@ -100,13 +102,13 @@ for_window [floating] border normal 3
 for_window [tiling] border pixel 3
 
 # Open floating terminal to move to scratchpad
-for_window [window_role="ScratchTerminal"] floating enable
-for_window [window_role="ScratchTerminal"] resize set 1000 700
-for_window [window_role="ScratchTerminal"] move scratchpad
-exec --no-startup-id gnome-terminal --role=ScratchTerminal
-bindsym $mod+Shift+t exec --no-startup-id gnome-terminal --role=ScratchTerminal
+for_window [instance="ScratchTerminal"] floating enable
+for_window [instance="ScratchTerminal"] resize set 1000 700
+for_window [instance="ScratchTerminal"] move scratchpad
+exec --no-startup-id alacritty --class=ScratchTerminal
+bindsym $mod+Shift+t exec --no-startup-id alacritty --class=ScratchTerminal
 
-bindsym $mod+t [window_role="ScratchTerminal"] scratchpad show; [window_role="ScratchTerminal"] move position center
+bindsym $mod+t [instance="ScratchTerminal"] scratchpad show; [instance="ScratchTerminal"] move position center
 
 # Open floating file explorer to move to scratchpad
 for_window [title="ScratchHome"] floating enable
@@ -348,3 +350,6 @@ bar {
 
 # Set background image
 exec_always --no-startup-id nitrogen --restore
+
+# set ralt als compose key
+exec_always --no-startup-id setxkbmap -option compose:ralt
