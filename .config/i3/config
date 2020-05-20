@@ -121,6 +121,8 @@ bindsym $mod+Shift+y exec --no-startup-id nautilus --new-window ~/ScratchHome
 
 bindsym $mod+y [con_mark="ScratchNautilus"] scratchpad show; [con_mark="ScratchNautilus"] move position center
 
+for_window [instance="gnome-flashback"] move scratchpad
+
 # Autrename workspaces
 exec_always ~/Documents/software/i3scripts/autoname_workspaces.py --norenumber_workspaces > ~/Documents/software/i3scripts/autoname.log &
 
