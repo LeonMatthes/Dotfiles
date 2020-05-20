@@ -39,6 +39,9 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'christoomey/vim-tmux-navigator'
 
+" REPL in VIM
+Plug 'jpalardy/vim-slime'
+
 call plug#end()
 
 " Enable statusline
@@ -128,3 +131,6 @@ nnoremap <silent> <C-a>h :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-a>j :TmuxNavigateDown<cr>
 nnoremap <silent> <C-a>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
+
+" ----------------- vim-slime -------------------
+let g:slime_target = "vimterminal"
