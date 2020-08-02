@@ -80,6 +80,21 @@ nnoremap K i<CR><ESC>
 
 " --------------  VISUAL MODE REMAPPS --------------------
 " Allow for direct search of the selected text
-vnoremap / y/<C-R>"
-vnoremap ? y?<C-R>"
-vnoremap <C-R> y:%s/<C-R>"//gc<left><left><left>
+
+" return a representation of the selected text
+" suitable for use as a search pattern
+function GetVisualSelection()
+  let old_reg = @a
+  normal! gv"ay
+  let raw_search = @a
+  let @a = old_reg
+  return substitute(escape(raw_search, '\/.*$^~[]'), "\n", '\\n', "g")
+endfunction
+
+vnoremap / y/<C-r>=escape(@", '/\')<CR>
+vnoremap ? y?<C-r>=escape(@", '?\')<CR>
+vnoremap <C-R> :<C-u>%s/<C-r>=GetVisualSelection()<CR>//gc<left><left><left>
+
+" vnoremap / y/<C-R>"
+" vnoremap ? y?<C-R>"
+" vnoremap <C-R> y:%s/<C-R>"//gc<left><left><left>
