@@ -36,6 +36,9 @@ set mouse=a
 " Make ESC not laggy
 set ttimeoutlen=10
 
+" Update more often (good for gitgutter)
+set updatetime=100
+
 " Make folds persistent
 " Disabled for now, causes problems with working dir
 " augroup AutoSaveFolds
