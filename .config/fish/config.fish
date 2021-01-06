@@ -11,6 +11,10 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias open="xdg-open"
 alias f='fuck'
 alias vim='gvim -v'
+alias rm='echo "This is not the command you\'re looking for! Use trash <file> instead!"; :'
+alias ll='ls -Al'
+alias clip='xclip -selection clipboard'
+alias open='xdg-open'
 starship init fish | source
 
 # This is meant to be bound to something like \cC.
