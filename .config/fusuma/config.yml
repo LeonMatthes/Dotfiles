@@ -1,0 +1,15 @@
+swipe:
+  3:
+    left:
+      command: "i3-msg 'workspace next'"
+      threshold: 0.25
+      interval: 0.5
+    right:
+      command: "i3-msg 'workspace previous'"
+      threshold: 0.25
+      interval: 0.5
+    up:
+      command: "xdotool key super+t"
+    down:
+      command: "xdotool key super+y"
+
