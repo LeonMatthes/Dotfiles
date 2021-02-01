@@ -15,6 +15,7 @@ Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Valloric/YouCompleteMe'
 Plug 'dense-analysis/ale'
+Plug 'pangloss/vim-javascript'
 
 " File handling
 Plug 'scrooloose/nerdtree'
@@ -82,7 +83,11 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
 
 " --------------- ALE ----------------
-let g:ale_linters = { 'rust': ['analyzer', 'cargo', 'rustfmt'], 'cpp': ['clangcheck'] }
+let g:ale_linters = {
+      \'rust': ['rls', 'cargo', 'rustfmt'],
+      \'cpp': ['clangcheck'],
+      \'text': ['textlint']
+      \}
 let g:ale_fixers = {
       \   'rust': [
       \     'rustfmt'
@@ -91,6 +96,12 @@ let g:ale_fixers = {
 let g:ale_set_balloons = 1
 let g:ale_fix_on_save = 1
 let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_hover_cursor = 0
+
+" let g:ale_rust_analyzer_config = {
+    " \  'cargo': {'loadOutDirsFromCheck': v:true},
+    " \  'procMacro': {'enable': v:true},
+    " \}
 
 " Stops the LSP -> Will automatically restart
 nnoremap <leader>R :ALEStopAllLSPs<CR>
