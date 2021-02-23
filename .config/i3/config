@@ -45,15 +45,18 @@ set $floating_border_width 3
 
 workspace_auto_back_and_forth no
 
+focus_follows_mouse yes
+
 ################################################
 ###### Custom Quitting dialog
 ################################################
-set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [l]ock
+set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [h]ibernate | [l]ock
 mode "$mode_power" {
     bindsym o mode "default"; exec i3-msg exit
     bindsym s mode "default"; exec systemctl suspend
     bindsym r mode "default"; exec reboot
     bindsym p mode "default"; exec systemctl poweroff
+    bindsym h mode "default"; exec systemctl hibernate
     bindsym l mode "default"; exec ~/.config/i3/lock-screen.sh
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -70,7 +73,6 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id gnome-flashback
-
 
 ######### start default apps
 ### status applications
@@ -98,7 +100,8 @@ for_window [class=Geary] move to workspace number 9
 # Make Thunderbird new message window floating
 for_window [instance=Msgcompose] floating enable
 
-for_window [floating] border normal 3
+for_window [floating_from="user"] border normal 3
+for_window [floating_from="auto"] border pixel 0
 for_window [tiling] border pixel 3
 
 # Open floating terminal to move to scratchpad
@@ -150,6 +153,7 @@ bindsym $mod+minus scratchpad show
 # Screenshots
 bindsym Print exec scrot '/home/leon/Pictures/Screenshots/%Y-%m-%d_$wx$h.png' -e 'notify-send --icon=$f "Screenshot $n saved" "$f"'
 bindsym Ctrl+Print exec gnome-screenshot -i
+bindsym --release $mod+Shift+s exec --no-startup-id gnome-screenshot -c -a
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -166,6 +170,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepUp # increase screen brightness
 bindsym XF86MonBrightnessDown exec gdbus call --session --dest org.gnome.SettingsDaemon.Power --object-path /org/gnome/SettingsDaemon/Power --method org.gnome.SettingsDaemon.Power.Screen.StepDown # decrease screen brightness
+
+bindsym $mod+Shift+s exec "gnome-screenshot -a -c"
 
 
 ###############################################
@@ -197,7 +203,7 @@ bindsym Alt_L+Tab exec --no-startup-id rofi -show window
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #
 # rebinds caps lock to escape (need to use bindcode here, because reasons)
-bindcode --release 66 exec --no-startup-id xdotool key Escape
+# bindcode --release 66 exec --no-startup-id xdotool key Escape
 
 # change focus, vim bindings
 bindsym $mod+h focus left
