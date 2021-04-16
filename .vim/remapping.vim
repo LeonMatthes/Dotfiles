@@ -59,6 +59,17 @@ nnoremap J <C-w>J
 nnoremap K <C-w>K
 nnoremap L <C-w>L
 
+" Same for neovim
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+nnoremap <A-H> <C-w>H
+nnoremap <A-J> <C-w>J
+nnoremap <A-K> <C-w>K
+nnoremap <A-L> <C-w>L
+
 " Remap insert mode to auto indent on empty line
 " smart indent when entering insert mode with i on empty lines
 function! IndentWith(keys)

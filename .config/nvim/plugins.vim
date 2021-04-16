@@ -152,4 +152,4 @@ nnoremap <silent> <C-a>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
 
 " ----------------- vim-slime -------------------
-let g:slime_target = "vimterminal"
+let g:slime_target = "neovim"
