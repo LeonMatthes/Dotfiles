@@ -52,7 +52,7 @@ focus_follows_mouse yes
 ################################################
 set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [h]ibernate | [l]ock
 mode "$mode_power" {
-    bindsym o mode "default"; exec i3-msg exit
+    bindsym o mode "default"; exec qdbus org.kde.ksmserver /KSMServer logout 1 3 3
     bindsym s mode "default"; exec systemctl suspend
     bindsym r mode "default"; exec reboot
     bindsym p mode "default"; exec systemctl poweroff
@@ -69,10 +69,10 @@ bindsym $mod+Shift+e mode "$mode_power"
 ################################################
 
 # i3-gnome
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec_always --no-startup-id gnome-power-manager
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id gnome-flashback
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
 
 ######### start default apps
 ### status applications
@@ -83,13 +83,6 @@ exec nm-applet
 # window compositor
 exec picom --experimental-backends || compton
 exec unclutter
-
-
-### Start apps
-exec --no-startup-id nextcloud-client
-exec --no-startup-id flatpak run com.spotify.Client || spotify
-exec --no-startup-id telegram-desktop
-exec --no-startup-id flatpak run org.gnome.Geary || geary
 
 for_window [class=Spotify] move to workspace number 10
 
@@ -361,3 +354,29 @@ exec_always --no-startup-id nitrogen --restore
 
 # set ralt als compose key
 exec_always --no-startup-id setxkbmap -option compose:ralt
+
+## Plasma Integration
+# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
+exec --no-startup-id wmctrl -c Plasma
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+## Avoid tiling popups, dropdown windows from plasma
+
+# for the first time, manually resize them, i3 will remember the setting for floating windows
+for_window [class="plasmashell"] floating enable;
+no_focus [class="plasmashell" window_type="notification"]
+
+for_window [class="Plasma"] floating enable; border none
+
+for_window [title="plasma-desktop"] floating enable; border none
+
+for_window [title="win7"] floating enable; border none
+
+for_window [class="krunner"] floating enable; border none
+
+for_window [class="Kmix"] floating enable; border none
+
+for_window [class="Klipper"] floating enable; border none
+
+for_window [class="Plasmoidviewer"] floating enable; border none
