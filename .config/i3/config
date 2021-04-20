@@ -112,8 +112,8 @@ for_window [title="ScratchHome"] resize set 1000 700
 for_window [title="ScratchHome"] move scratchpad
 for_window [title="ScratchHome"] mark ScratchNautilus
 
-exec --no-startup-id nautilus --new-window ~/ScratchHome
-bindsym $mod+Shift+y exec --no-startup-id nautilus --new-window ~/ScratchHome
+exec --no-startup-id dolphin --new-window ~/ScratchHome
+bindsym $mod+Shift+y exec --no-startup-id dolphin --new-window ~/ScratchHome
 
 bindsym $mod+y [con_mark="ScratchNautilus"] scratchpad show; [con_mark="ScratchNautilus"] move position center
 
@@ -349,23 +349,20 @@ bar {
     }
 }
 
-# Set background image
-exec_always --no-startup-id nitrogen --restore
-
 # set ralt als compose key
 exec_always --no-startup-id setxkbmap -option compose:ralt
 
 ## Plasma Integration
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
+# exec --no-startup-id wmctrl -c Plasma
 
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [title="Desktop — Plasma"] move scratchpad; floating enable; border none
+# for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 ## Avoid tiling popups, dropdown windows from plasma
 
 # for the first time, manually resize them, i3 will remember the setting for floating windows
 for_window [class="plasmashell"] floating enable;
-no_focus [class="plasmashell" window_type="notification"]
 
 for_window [class="Plasma"] floating enable; border none
 
@@ -380,3 +377,10 @@ for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 
 for_window [class="Plasmoidviewer"] floating enable; border none
+
+for_window [class="plasmashell" window_type="notification"] floating enable, border none
+no_focus [class="plasmashell" window_type="notification"]
+
+
+# Set background image
+exec_always --no-startup-id nitrogen --restore
