@@ -45,7 +45,7 @@ set $floating_border_width 3
 
 workspace_auto_back_and_forth no
 
-focus_follows_mouse yes
+focus_follows_mouse no
 
 ################################################
 ###### Custom Quitting dialog
@@ -241,6 +241,10 @@ bindsym $mod+Ctrl+space floating toggle; [floating] border normal $floating_bord
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+bindsym $mod+Delete focus mode_toggle
+
+# default floating apps
+for_window [class="Charm"] floating enable
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -360,24 +364,15 @@ for_window [title="Desktop — Plasma"] move scratchpad; floating enable; border
 # for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 ## Avoid tiling popups, dropdown windows from plasma
-
 # for the first time, manually resize them, i3 will remember the setting for floating windows
 for_window [class="plasmashell"] floating enable;
-
 for_window [class="Plasma"] floating enable; border none
-
 for_window [title="plasma-desktop"] floating enable; border none
-
 for_window [title="win7"] floating enable; border none
-
 for_window [class="krunner"] floating enable; border none
-
 for_window [class="Kmix"] floating enable; border none
-
 for_window [class="Klipper"] floating enable; border none
-
 for_window [class="Plasmoidviewer"] floating enable; border none
-
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
 no_focus [class="plasmashell" window_type="notification"]
 
