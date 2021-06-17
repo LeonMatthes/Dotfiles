@@ -1,0 +1,5 @@
+[user]
+	email = leon@matthes.biz
+	name = Leon Matthes
+[core]
+	editor = nvim
