@@ -77,8 +77,8 @@ bindsym $mod+Shift+e mode "$mode_power"
 ######### start default apps
 ### status applications
 # bluetooth and network
-exec blueman-applet
-exec nm-applet
+#exec blueman-applet
+#exec nm-applet
 
 # window compositor
 exec picom --experimental-backends || compton
@@ -189,6 +189,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # Windows+tab with rofi
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 bindsym Alt_L+Tab exec --no-startup-id rofi -show window
+
+# Emojis with rofi
+bindsym $mod+comma exec --no-startup-id rofimoji --action clipboard
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
