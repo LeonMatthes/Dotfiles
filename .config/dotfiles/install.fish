@@ -15,8 +15,10 @@ inform Installing Vim-Plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-inform Installing pynvim
+inform Installing python modules
 sudo pip install pynvim
+sudo pip install i3ipc
+sudo pip install pynput
 
 inform Changing default shell to fish
 chsh -s (which fish)
