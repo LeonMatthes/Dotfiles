@@ -54,7 +54,7 @@ set $mode_power log [o]ut | [s]uspend | [r]eboot  | [p]oweroff | [h]ibernate | [
 mode "$mode_power" {
     bindsym o mode "default"; exec qdbus org.kde.ksmserver /KSMServer logout 1 3 3
     bindsym s mode "default"; exec systemctl suspend
-    bindsym r mode "default"; exec reboot
+    bindsym r mode "default"; exec systemctl reboot
     bindsym p mode "default"; exec systemctl poweroff
     bindsym h mode "default"; exec systemctl hibernate
     bindsym l mode "default"; exec ~/.config/i3/lock-screen.sh
