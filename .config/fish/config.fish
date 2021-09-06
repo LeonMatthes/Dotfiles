@@ -16,6 +16,9 @@ alias clip='xclip -selection clipboard'
 alias open='xdg-open'
 starship init fish | source
 
+# source local (per computer) config
+if test -f "$HOME/.config/fish/local_config.fish"; source "$HOME/.config/fish/local_config.fish"; end
+
 # This is meant to be bound to something like \cC.
 function __fish_cancel_commandline
     # Close the pager if it's open (#4298)
