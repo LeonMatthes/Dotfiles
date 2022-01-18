@@ -23,3 +23,7 @@ set expandtab
 " Searching
 set ignorecase
 set smartcase
+
+" Allows loading of local project settings
+set exrc
+set secure

@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-name = Leon Matthes
-email = leon@matthes.biz
+	name = Leon Matthes
+	email = leon@matthes.biz
 [core]
 	editor = nvim
 [filter "lfs"]
@@ -15,3 +15,19 @@ email = leon@matthes.biz
 	rebase = false
 [init]
 	defaultBranch = main
+
+# Add the following to your .gitconfig file.
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+
+# Add the following to your .gitconfig file.
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool]
+	keepBackup = false
