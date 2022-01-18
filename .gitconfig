@@ -13,3 +13,5 @@ email = leon@matthes.biz
 	helper = store
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main

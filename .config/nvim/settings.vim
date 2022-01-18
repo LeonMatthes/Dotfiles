@@ -19,3 +19,7 @@ au FileType tex,latex,text,markdown,plaintext setlocal spell
 
 " tabbing
 set expandtab
+
+" Searching
+set ignorecase
+set smartcase
