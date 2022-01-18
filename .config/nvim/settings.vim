@@ -19,3 +19,7 @@ au FileType tex,latex,text,markdown,plaintext setlocal spell
 
 " tabbing
 set expandtab
+
+" Allows loading of local project settings
+set exrc
+set secure

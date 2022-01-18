@@ -11,7 +11,7 @@ nnoremap <CR><BS> :normal O<CR>
 :autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " Allow to clear last search history
-nnoremap <leader><space> :pclose<CR>:lclose<CR>:nohlsearch<CR>
+nnoremap <leader><space> :pclose<CR>:lclose<CR>:nohlsearch<CR>:lclose<CR>:cclose<CR>
 
 " Allow to repeat last colon command
 nnoremap <leader>. :<Up><CR>
