@@ -14,6 +14,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
+Plug 'tie/llvm.vim'
 
 " LSP support
 Plug 'neovim/nvim-lspconfig'
