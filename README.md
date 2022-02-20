@@ -1,4 +1,11 @@
 # Installation
+Prerequisites:
+```
+pip (python3-pip)
+starship
+python3-devel
+oh my fish
+```
 
 Run in fish shell:
 ``` shell
