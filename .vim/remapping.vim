@@ -22,9 +22,6 @@ nnoremap <leader><BS> :set number!<CR>:set relativenumber!<CR>
 " Easy vimrc reload
 nnoremap <leader>r :source $MYVIMRC<CR>:echo "vimrc reloaded!"<CR>
 
-" Shortcut for swapping cpp and header files
-map <leader>o :call CurtineIncSw()<CR>
-
 " Remappings for Location list
 " nnoremap <leader>i :lbelow<CR>
 " nnoremap <leader>I :labove<CR>

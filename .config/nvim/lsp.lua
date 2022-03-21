@@ -43,7 +43,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   })
 
 -- The list of available servers is defined here:
-local servers = { "clangd", "rls", "vimls" }
+local servers = { "rls", "vimls" }
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach,
@@ -53,4 +53,10 @@ for _, server in ipairs(servers) do
   }
 end
 
-
+lsp.clangd.setup {
+    on_attach = on_attach,
+    cmd = { "clangd", "--header-insertion=never" },
+    flags = {
+      debounce_text_changes = 150
+    }
+}
