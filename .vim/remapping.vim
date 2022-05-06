@@ -1,15 +1,6 @@
 " Set <Space> as leader as it is very easy to press
 map <Space> <leader>
 
-" <CR><CR> inserts a newline
-" <CR><BS> inserts a newline ontop
-nnoremap <CR><CR> :normal o<CR>
-nnoremap <CR><BS> :normal O<CR>
-
-" supposedly necessary for <CR> remaps to work correctly
-:autocmd CmdwinEnter * nnoremap <CR> <CR>
-:autocmd BufReadPost quickfix nnoremap <CR> <CR>
-
 " Allow to clear last search history
 nnoremap <leader><space> :pclose<CR>:lclose<CR>:nohlsearch<CR>:lclose<CR>:cclose<CR>
 
@@ -21,9 +12,6 @@ nnoremap <leader><BS> :set number!<CR>:set relativenumber!<CR>
 
 " Easy vimrc reload
 nnoremap <leader>r :source $MYVIMRC<CR>:echo "vimrc reloaded!"<CR>
-
-" Shortcut for swapping cpp and header files
-map <leader>o :call CurtineIncSw()<CR>
 
 " Remappings for Location list
 " nnoremap <leader>i :lbelow<CR>

@@ -22,10 +22,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
@@ -43,7 +43,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   })
 
 -- The list of available servers is defined here:
-local servers = { "clangd", "rls", "vimls" }
+local servers = { "rust_analyzer", "vimls" }
 for _, server in ipairs(servers) do
   lsp[server].setup {
     on_attach = on_attach,
@@ -53,4 +53,10 @@ for _, server in ipairs(servers) do
   }
 end
 
-
+lsp.clangd.setup {
+    on_attach = on_attach,
+    cmd = { "clangd", "--header-insertion=never" },
+    flags = {
+      debounce_text_changes = 150
+    }
+}

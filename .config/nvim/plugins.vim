@@ -11,7 +11,6 @@ Plug 'machakann/vim-highlightedyank'
 " Language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'sheerun/vim-polyglot'
-Plug 'ericcurtin/CurtineIncSw.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'tie/llvm.vim'
@@ -66,6 +65,8 @@ luafile ~/.config/nvim/lsp.lua
 autocmd Cursorhold * lua vim.diagnostic.open_float(0, {scope="line"})
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 500)
 
+nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
+
 " -------------------- nvim-compe (Autocomplete) -------
 luafile ~/.config/nvim/nvim-compe.lua
 " Allow completion with TAB
@@ -73,50 +74,6 @@ inoremap <silent><expr> <TAB> pumvisible() ? compe#confirm() : "\<TAB>"
 
 " --------------------- nvim nvim-lightbulb ------------
 autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
-
-" " --------------- YouCompleteMe ---------------------
-" " Remappings
-" nnoremap <leader>gg :YcmCompleter GoTo<CR>
-" nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>gt :YcmCompleter GoToType<CR>
-" nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-" nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-" nnoremap <leader>T :YcmCompleter GetType<CR>
-" nnoremap <leader>f :YcmCompleter FixIt<CR>
-" " Other settings
-" set completeopt-=preview
-" let g:ycm_add_preview_to_completeopt = 0
-
-" " Disable diagnostics, ALE's job now
-" let g:ycm_show_diagnostics_ui = 0
-
-" --------------- ALE ----------------
-" let g:ale_linters = {
-      " \'rust': ['rls', 'cargo', 'rustfmt'],
-      " \'cpp': ['clangcheck'],
-      " \'text': ['textlint']
-      " \}
-" let g:ale_fixers = {
-      " \   'rust': [
-      " \     'rustfmt'
-      " \   ]
-      " \ }
-" let g:ale_set_balloons = 1
-" let g:ale_fix_on_save = 1
-" let g:ale_echo_msg_format = '[%linter%] %s'
-" let g:ale_hover_cursor = 0
-
-" let g:ale_rust_analyzer_config = {
-    " \  'cargo': {'loadOutDirsFromCheck': v:true},
-    " \  'procMacro': {'enable': v:true},
-    " \}
-
-" " Stops the LSP -> Will automatically restart
-" nnoremap <leader>R :ALEStopAllLSPs<CR>
-
-" nnoremap <leader>D :ALELint<CR>:lopen<CR>
-" nnoremap <leader>i :ALENext<CR>
-" nnoremap <leader>I :ALEPrevious<CR>
 
 " --------------- NERDTree --------------------
 nnoremap <leader>t :NERDTreeToggle<CR>
