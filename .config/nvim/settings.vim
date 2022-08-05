@@ -27,3 +27,7 @@ set smartcase
 " Allows loading of local project settings
 set exrc
 set secure
+
+" line wrap
+set wrap
+set linebreak

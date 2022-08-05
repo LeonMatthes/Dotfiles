@@ -29,7 +29,6 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = true;
     emoji = true;
-    spell = true;
     tags = true;
   };
 }
