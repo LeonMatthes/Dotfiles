@@ -3,7 +3,7 @@
     "[latex]": {
         "editor.wordWrap": "on"
     },
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     
     //Better spellchecking
     "cSpell.language": "de,en",
@@ -18,6 +18,6 @@
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
-    "window.zoomLevel": 0
+    "workbench.colorTheme": "Default Dark+"
 }
 
