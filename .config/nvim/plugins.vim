@@ -2,7 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Theming
 Plug 'joshdick/onedark.vim'
-Plug 'projekt0n/github-nvim-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -33,6 +32,8 @@ Plug 'kosayoda/nvim-lightbulb'
 
 " File handling
 Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by fzf.vim
 Plug 'junegunn/fzf.vim'
 
@@ -48,7 +49,6 @@ Plug 'tpope/vim-surround'
 " Source Control
 Plug 'airblade/vim-gitgutter'
 Plug 'antoinemadec/FixCursorHold.nvim'
-" Plug 'mhinz/vim-signify'
 
 " Easier naviagtion
 Plug 'justinmk/vim-sneak'
@@ -65,7 +65,7 @@ call plug#end()
 
 " ------------------- Airline ---------------------
 let g:airline_powerline_fonts=1
-let g:airline_theme="powerlineish"
+let g:airline_theme="onedark"
 
 set laststatus=2
 
