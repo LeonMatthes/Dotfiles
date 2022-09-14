@@ -2,6 +2,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Theming
 Plug 'joshdick/onedark.vim'
+Plug 'projekt0n/github-nvim-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -15,9 +16,19 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'tie/llvm.vim'
 
+" Snippets (required by nvim-cmp)
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.0.0'}
+
 " LSP support
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-emoji'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 
 " File handling
@@ -64,13 +75,12 @@ luafile ~/.config/nvim/lsp.lua
 " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 autocmd Cursorhold * lua vim.diagnostic.open_float(0, {scope="line"})
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 500)
 
 nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
 
-" -------------------- nvim-compe (Autocomplete) -------
-luafile ~/.config/nvim/nvim-compe.lua
-" Allow completion with TAB
-inoremap <silent><expr> <TAB> pumvisible() ? compe#confirm() : "\<TAB>"
+" -------------------- nvim-cmp (Autocomplete) -------
+luafile ~/.config/nvim/nvim-cmp.lua
 
 " --------------------- nvim nvim-lightbulb ------------
 autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()

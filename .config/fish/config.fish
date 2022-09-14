@@ -16,6 +16,8 @@ alias clip='xclip -selection clipboard'
 alias open='xdg-open'
 starship init fish | source
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # source local (per computer) config
 if test -f "$HOME/.config/fish/local_config.fish"; source "$HOME/.config/fish/local_config.fish"; end
 
