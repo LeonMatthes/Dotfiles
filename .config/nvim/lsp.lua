@@ -29,14 +29,19 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
+--- Set symbols of LSP diagnostics
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     -- Enable underline, use default values
     underline = true,
     -- Enable virtual text, override spacing to 4
-    virtual_text = {
-      spacing = 4,
-    },
+    virtual_text = true,
     signs = true,
     update_in_insert = false,
     severity_sort = true
@@ -47,15 +52,19 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- The list of available servers is defined here:
 local servers = { "rust_analyzer", "vimls" }
-for _, server in ipairs(servers) do
-  lsp[server].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150
+lsp.vimls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      diagnostics = { experimental = { enable = true } }
     }
   }
-end
+}
 
 lsp.clangd.setup {
     on_attach = on_attach,

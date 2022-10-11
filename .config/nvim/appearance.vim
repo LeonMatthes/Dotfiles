@@ -12,24 +12,33 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme onedark
-
 " ------------------------- nvim-cmp -------------------
+"  Based on onedark colors
+let s:colors = onedark#GetColors()
+" Selection
+execute "highlight! PmenuSel guibg=" . s:colors.cursor_grey.gui . " guifg=NONE"
+
 " gray
-highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+execute "highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=" . s:colors.comment_grey.gui
+execute "highlight! CmpItemMenu guibg=NONE guifg=" . s:colors.comment_grey.gui
+
 " blue
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-" light blue
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-" pink
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+execute "highlight! CmpItemAbbrMatch guibg=NONE guifg=" . s:colors.blue.gui
+execute "highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=" . s:colors.blue.gui
+
+" cyan
+execute "highlight! CmpItemKindVariable guibg=NONE guifg=" . s:colors.cyan.gui
+execute "highlight! CmpItemKindInterface guibg=NONE guifg=" . s:colors.cyan.gui
+execute "highlight! CmpItemKindText guibg=NONE guifg=" . s:colors.cyan.gui
+" purple
+execute "highlight! CmpItemKindFunction guibg=NONE guifg=" . s:colors.purple.gui
+execute "highlight! CmpItemKindMethod guibg=NONE guifg=" . s:colors.purple.gui
 " front
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+execute "highlight! CmpItemKindKeyword guibg=NONE guifg=" . s:colors.white.gui
+execute "highlight! CmpItemKindProperty guibg=NONE guifg=" . s:colors.white.gui
+execute "highlight! CmpItemKindUnit guibg=NONE guifg=" . s:colors.white.gui
+
+let g:onedark_terminal_italics = 1
+colorscheme onedark
 
 set cursorline

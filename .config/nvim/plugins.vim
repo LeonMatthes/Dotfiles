@@ -33,7 +33,9 @@ Plug 'kosayoda/nvim-lightbulb'
 " File handling
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Disabled for neovim 0.8.0
+" See: https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/issues/53
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by fzf.vim
 Plug 'junegunn/fzf.vim'
 
