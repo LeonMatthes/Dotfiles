@@ -1,4 +1,4 @@
-vim.o.completeopt = "menuone,menu,noselect"
+vim.o.completeopt = "menuone,menu"
 
 local lspkind = require 'lspkind'
 local cmp = require 'cmp'
@@ -6,6 +6,7 @@ local luasnip = require('luasnip')
 
 cmp.setup({
   preselect = cmp.PreselectMode.Item,
+  completion = { completeopt = "menuone,menu" },
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
@@ -28,20 +29,16 @@ cmp.setup({
     format = lspkind.cmp_format({
       mode = 'symbol', -- show only symbol annotations
       menu = ({
-          buffer = " ",
-          nvim_lsp = " ",
-          emoji = " ",
-          luasnip = "ﬕ ",
-          nvim_lsp_signature_help = " ",
-          path = " ",
+          buffer = "",
+          nvim_lsp = "",
+          emoji = "",
+          luasnip = "ﬕ",
+          nvim_lsp_signature_help = "",
+          path = "",
         }),
-      maxwidth = 30, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
     })
   },
-  -- window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  -- },
   mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
