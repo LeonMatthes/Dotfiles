@@ -26,7 +26,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-  buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<Tab>', '<cmd>lua require("luasnip").jump()<CR>', opts)
 end
 
 --- Set symbols of LSP diagnostics
@@ -66,6 +67,15 @@ lsp.rust_analyzer.setup {
   }
 }
 
+lsp.slint_lsp.setup {
+    on_attach = on_attach,
+    cmd = { "slint-lsp", "--backend", "GL" },
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150
+    }
+}
+
 lsp.clangd.setup {
     on_attach = on_attach,
     cmd = { "clangd", "--header-insertion=never" },
@@ -74,3 +84,5 @@ lsp.clangd.setup {
       debounce_text_changes = 150
     }
 }
+
+require("symbols-outline").setup({auto_close=true})

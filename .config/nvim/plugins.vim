@@ -4,9 +4,11 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'
 
 " convenience
 Plug 'machakann/vim-highlightedyank'
+Plug 'brenoprata10/nvim-highlight-colors'
 
 " Language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -14,12 +16,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'tie/llvm.vim'
+Plug 'slint-ui/vim-slint'
 
 " Snippets (required by nvim-cmp)
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.0.0'}
 
 " LSP support
 Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/symbols-outline.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-buffer'
@@ -78,8 +82,12 @@ luafile ~/.config/nvim/lsp.lua
 autocmd Cursorhold * lua vim.diagnostic.open_float(0, {scope="line"})
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 500)
 autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 500)
 
 nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
+
+" ------------------- symbols-outline -----------------
+nnoremap <leader>so :SymbolsOutline<CR>
 
 " -------------------- nvim-cmp (Autocomplete) -------
 luafile ~/.config/nvim/nvim-cmp.lua
@@ -130,3 +138,6 @@ nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
 
 " ----------------- vim-slime -------------------
 let g:slime_target = "neovim"
+
+" ----------------- nvim-highlight-colors ------------
+lua require("nvim-highlight-colors").setup { render = 'background' }
