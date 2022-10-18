@@ -141,3 +141,12 @@ let g:slime_target = "neovim"
 
 " ----------------- nvim-highlight-colors ------------
 lua require("nvim-highlight-colors").setup { render = 'background' }
+
+" ----------------------- cmps -----------------------
+function Compose()
+  if wordcount().bytes==0 && len(getreg("%")) > 0
+    0r! cmps --stdout %
+  endif
+endfunction
+
+autocmd BufEnter * call Compose()
