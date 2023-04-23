@@ -62,7 +62,10 @@ lsp.rust_analyzer.setup {
   capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
-      diagnostics = { experimental = { enable = true } }
+      diagnostics = { experimental = { enable = true } },
+      check = {
+        command = "clippy"
+      }
     }
   }
 }
@@ -76,10 +79,13 @@ lsp.slint_lsp.setup {
     }
 }
 
+local clangd_capabilities = capabilities
+clangd_capabilities.offsetEncoding = "utf-8"
+
 lsp.clangd.setup {
     on_attach = on_attach,
     cmd = { "clangd", "--header-insertion=never" },
-    capabilities = capabilities,
+    capabilities = clangd_capabilities,
     flags = {
       debounce_text_changes = 150
     }
