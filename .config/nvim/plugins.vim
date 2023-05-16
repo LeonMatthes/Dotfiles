@@ -11,7 +11,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'brenoprata10/nvim-highlight-colors'
 
 " Language support
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
@@ -61,7 +61,6 @@ Plug 'justinmk/vim-sneak'
 
 " Tmux integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'roxma/vim-tmux-clipboard'
 Plug 'christoomey/vim-tmux-navigator'
 
 " REPL in VIM
@@ -144,7 +143,7 @@ lua require("nvim-highlight-colors").setup { render = 'background' }
 
 " ----------------------- cmps -----------------------
 function Compose()
-  if wordcount().bytes==0 && len(getreg("%")) > 0
+  if &modifiable && wordcount().bytes==0 && len(getreg("%")) > 0
     0r! cmps --stdout %
   endif
 endfunction

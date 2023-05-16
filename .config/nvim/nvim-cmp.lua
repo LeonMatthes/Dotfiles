@@ -28,6 +28,7 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format({
       mode = 'symbol', -- show only symbol annotations
+      preset= 'codicons',
       menu = ({
           buffer = "",
           nvim_lsp = "",
