@@ -79,9 +79,9 @@ luafile ~/.config/nvim/lsp.lua
 " Show diagnostics when cursor is on them
 " autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 autocmd Cursorhold * lua vim.diagnostic.open_float(0, {scope="line"})
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 500)
-autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 500)
-autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.rs lua vim.lsp.buf.format({async=false})
+autocmd BufWritePre *.cpp lua vim.lsp.buf.format({async=false})
+autocmd BufWritePre *.h lua vim.lsp.buf.format({async=false})
 
 nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
 

@@ -17,7 +17,6 @@
 
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "workbench.colorTheme": "Default Dark+"
+    "git.confirmSync": false
 }
 
