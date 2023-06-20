@@ -1,0 +1,17 @@
+theme="onedark"
+
+[editor]
+line-number="relative"
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.statusline]
+right = ["diagnostics", "selections", "position", "position-percentage", "file-encoding", "file-type"]
+mode.insert = "INSERT"
+mode.normal = "NORMAL"
+mode.select = "SELECT"
