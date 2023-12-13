@@ -31,3 +31,15 @@ set secure
 " line wrap
 set wrap
 set linebreak
+
+set termguicolors
+
+" When saving, NeoVim will create a backup file.
+" By default, this renames (moves) the file to a name with `~` and then
+" creates a new file.
+" Some tools that rely on file-system watches (slint-viewer, knut)
+" don't deal with this well.
+" Therefore, copy the file instead and overwriting the original is preferred.
+" This mainly has a performance downside, but for text files on a modern
+" machine, this is not noticeable.
+set backupcopy=yes

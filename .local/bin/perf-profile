@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# for older systems which do not support zstd compression yet, remove the `-z` flag below
+perf record -m 16M -z --switch-events --sample-cpu --call-graph dwarf,8192 -e cycles -e sched:sched_switch "$@"
