@@ -12,7 +12,6 @@ alias open="xdg-open"
 alias f='fuck'
 alias rm='echo "This is not the command you\'re looking for! Use trash <file> instead!"; :'
 alias ll='ls -Al'
-alias clip='xclip -selection clipboard'
 alias open='xdg-open'
 starship init fish | source
 
