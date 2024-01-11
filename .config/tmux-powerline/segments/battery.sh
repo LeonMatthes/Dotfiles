@@ -3,11 +3,11 @@
 TMUX_POWERLINE_SEG_BATTERY_TYPE_DEFAULT="percentage"
 TMUX_POWERLINE_SEG_BATTERY_NUM_BATTERIES_DEFAULT=5
 
-BATTERY_FULL=" "
-BATTERY_MED=" "
-BATTERY_EMPTY=" "
-BATTERY_CHARGE=" "
-ADAPTER=" "
+BATTERY_FULL="󱊣"
+BATTERY_MED="󱊢"
+BATTERY_EMPTY="󱊡"
+BATTERY_CHARGE="󰂄"
+ADAPTER="󰚥"
 
 generate_segmentrc() {
 	read -d '' rccontents  << EORC
@@ -65,8 +65,8 @@ __battery_osx() {
 					export curcap=$value;;
 				"ExternalConnected")
 					export extconnect=$value;;
-        "FullyCharged")
-          export fully_charged=$value;;
+				"FullyCharged")
+					export fully_charged=$value;;
 			esac
 			if [[ -n $maxcap && -n $curcap && -n $extconnect ]]; then
 				charge=`pmset -g batt | grep -o "[0-9][0-9]*\%" | rev | cut -c 2- | rev`
@@ -88,76 +88,88 @@ __battery_osx() {
 				break
 			fi
 		done
-	}
+}
 
-	__battery_linux() {
-		case "$SHELL_PLATFORM" in
-			"linux")
-				BATPATH=/sys/class/power_supply/BAT0
-				if [ ! -d $BATPATH ]; then
-					BATPATH=/sys/class/power_supply/BAT1
-				fi
-				STATUS=$BATPATH/status
-				BAT_FULL=$BATPATH/charge_full
-				if [ ! -r $BAT_FULL ]; then
-					BAT_FULL=$BATPATH/energy_full
-				fi
-				BAT_NOW=$BATPATH/charge_now
-				if [ ! -r $BAT_NOW ]; then
-					BAT_NOW=$BATPATH/energy_now
-				fi
-
-				if [[ "$1" = `cat $STATUS` || "$1" = "" ]]; then
-					__linux_get_bat
-				fi
-				;;
-			"bsd")
-				STATUS=`sysctl -n hw.acpi.battery.state`
-				case $1 in
-					"Discharging")
-						if [ $STATUS -eq 1 ]; then
-							__freebsd_get_bat
-						fi
-						;;
-					"Charging")
-						if [ $STATUS -eq 2 ]; then
-							__freebsd_get_bat
-						fi
-						;;
-					"")
-						__freebsd_get_bat
-						;;
-				esac
-				;;
-		esac
-	}
-
-	__cutinate() {
-		perc=$1
-		inc=$(( 100 / $TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS ))
-
-
-		for i in `seq $TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS`; do
-			if [ $perc -lt 99 ]; then
-				echo -n $BATTERY_EMPTY
-			else
-				echo -n $BATTERY_FULL
+__battery_linux() {
+	case "$SHELL_PLATFORM" in
+		"linux")
+			BATPATH=/sys/class/power_supply/BAT0
+			if [ ! -d $BATPATH ]; then
+				BATPATH=/sys/class/power_supply/BAT1
 			fi
-			echo -n " "
-			perc=$(( $perc + $inc ))
-		done
-	}
+			STATUS=$BATPATH/status
+			BAT_FULL=$BATPATH/charge_full
+			if [ ! -r $BAT_FULL ]; then
+				BAT_FULL=$BATPATH/energy_full
+			fi
+			BAT_NOW=$BATPATH/charge_now
+			if [ ! -r $BAT_NOW ]; then
+				BAT_NOW=$BATPATH/energy_now
+			fi
 
-	__linux_get_bat() {
-		bf=$(cat $BAT_FULL)
-		bn=$(cat $BAT_NOW)
-		if [ $bn -gt $bf ]; then
-			bn=$bf
+			if [[ "$1" = `cat $STATUS` || "$1" = "" ]]; then
+				__linux_get_bat
+			fi
+			;;
+		"bsd")
+			STATUS=`sysctl -n hw.acpi.battery.state`
+			case $1 in
+				"Discharging")
+					if [ $STATUS -eq 1 ]; then
+						__freebsd_get_bat
+					fi
+					;;
+				"Charging")
+					if [ $STATUS -eq 2 ]; then
+						__freebsd_get_bat
+					fi
+					;;
+				"")
+					__freebsd_get_bat
+					;;
+			esac
+			;;
+	esac
+}
+
+__cutinate() {
+	perc=$1
+	inc=$(( 100 / $TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS ))
+
+
+	for i in `seq $TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS`; do
+		if [ $perc -lt 99 ]; then
+			echo -n $BATTERY_EMPTY
+		else
+			echo -n $BATTERY_FULL
 		fi
-		echo "$BATTERY_MED $(( 100 * $bn / $bf ))"
-	}
+		echo -n " "
+		perc=$(( $perc + $inc ))
+	done
+}
 
-	__freebsd_get_bat() {
-		echo "$BATTER_MED $(sysctl -n hw.acpi.battery.life)"
+__linux_get_bat() {
+	bf=$(cat $BAT_FULL)
+	bn=$(cat $BAT_NOW)
+	if [ $bn -gt $bf ]; then
+		bn=$bf
+	fi
+	charge="$(( 100 * $bn / $bf ))"
+	if [[ "$STATUS" == "Charging" ]]; then
+		echo "$BATTERY_CHARGE $charge"
+	else
+		if [[ $charge -lt 35 ]]; then
+			echo -n "#[fg=#ff0000]"
+			echo "$BATTERY_EMPTY $charge"
+		elif [[ $charge -lt 66 ]]; then
+			echo "$BATTERY_MED $charge"
+		else
+			echo "$BATTERY_FULL $charge"
+		fi
+	fi
+}
 
-	}
+__freebsd_get_bat() {
+	echo "$BATTER_MED $(sysctl -n hw.acpi.battery.life)"
+
+}

@@ -97,7 +97,7 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: JetBrainsMono Nerd Font
+    family: nerdfont
     style: Regular
 
   # Bold font face
