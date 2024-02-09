@@ -30,10 +30,11 @@ cmp.setup({
       mode = 'symbol', -- show only symbol annotations
       preset= 'codicons',
       menu = ({
+          copilot = " ",
           buffer = "",
           nvim_lsp = "",
           emoji = "",
-          luasnip = "ﬕ",
+          luasnip = " ",
           nvim_lsp_signature_help = "",
           path = "",
         }),
@@ -45,11 +46,21 @@ cmp.setup({
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
+      end, {
+        "i","s"
+      }),
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+          cmp.confirm({
+            -- Fix buggy copilot indentation
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true })
         else
           fallback()
         end
@@ -59,6 +70,8 @@ cmp.setup({
         ), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
   sources = cmp.config.sources({
+      { name = 'copilot' },
+      { name = 'nvim_cmp' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'path' },
