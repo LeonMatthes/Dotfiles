@@ -1,8 +1,31 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+local lsp = require 'lspconfig'
+local notify = require 'notify'
 
-local lsp = require'lspconfig'
+require("notify").setup({
+  background_colour = "#282c34",
+})
+
+-- pretty LSP message notifications
+-- See: https://www.reddit.com/r/neovim/comments/sxlkua/what_are_some_good_nvimnotify_use_cases/
+vim.lsp.handlers['window/showMessage'] = function(_, result, ctx)
+  local client = vim.lsp.get_client_by_id(ctx.client_id)
+  local lvl = ({
+    'ERROR',
+    'WARN',
+    'INFO',
+    'DEBUG',
+  })[result.type]
+  notify({ result.message }, lvl, {
+    title = 'LSP | ' .. client.name,
+    timeout = 10000,
+    keep = function()
+      return lvl == 'ERROR' or lvl == 'WARN'
+    end,
+  })
+end
 
 -- Use init_buffer function to only map the keys after the language
 -- server attaches to the current buffer
@@ -34,7 +57,7 @@ local init_buffer = function(client, bufnr)
 end
 
 --- Set symbols of LSP diagnostics
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -50,6 +73,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
     severity_sort = true
   })
+
 
 -- nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -79,22 +103,39 @@ require("mason-lspconfig").setup_handlers {
   end
 }
 
-
-lsp.vimls.setup {
-  on_attach = init_buffer,
-  capabilities = capabilities,
+local settings = {
+  ["rust-analyzer"] = {
+    diagnostics = { experimental = { enable = true } },
+    check = {
+      command = "clippy"
+    }
+  }
 }
+-- load local lsp config
+local local_config_filename = vim.fn.getcwd() .. '/.lspconfig.lua'
+local local_config, err = loadfile(local_config_filename)
+if local_config ~= nil then
+  local cfg = local_config()
+
+  if cfg ~= nil then
+    if cfg["rust-analyzer"] ~= nil then
+      notify("Loaded local LSP config", "INFO")
+
+      for opt, val in pairs(cfg["rust-analyzer"]) do
+        settings["rust-analyzer"][opt] = val
+      end
+    else
+      notify("No rust-analyzer config in local LSP config", "ERROR")
+    end
+  else
+    notify("Local LSP config returned nil", "ERROR")
+  end
+end
+
 lsp.rust_analyzer.setup {
   on_attach = init_buffer,
   capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      diagnostics = { experimental = { enable = true } },
-      check = {
-        command = "clippy"
-      }
-    }
-  }
+  settings = settings
 }
 
 lsp.slint_lsp.setup {
