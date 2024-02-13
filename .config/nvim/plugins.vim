@@ -34,6 +34,12 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 
+" LSP server installer
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim' " LSP server manager
+" Improved LTeX
+Plug 'barreiroleo/ltex_extra.nvim'
+
 " File handling
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
