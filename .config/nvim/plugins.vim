@@ -4,12 +4,12 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'NLKNguyen/papercolor-theme'
 
 " convenience
 Plug 'machakann/vim-highlightedyank'
 Plug 'brenoprata10/nvim-highlight-colors'
 Plug 'rcarriga/nvim-notify'
+Plug 'folke/which-key.nvim'
 
 " Language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -61,17 +61,10 @@ Plug 'tpope/vim-surround'
 
 " Source Control
 Plug 'airblade/vim-gitgutter'
-Plug 'antoinemadec/FixCursorHold.nvim'
-
-" Easier naviagtion
-Plug 'justinmk/vim-sneak'
 
 " Tmux integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
-
-" REPL in VIM
-Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -167,3 +160,6 @@ function Compose()
 endfunction
 
 autocmd BufEnter * call Compose()
+
+" ---------------------- which-key ----------------------
+lua require('which-key').setup{}
