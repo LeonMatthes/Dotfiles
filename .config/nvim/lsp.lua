@@ -1,3 +1,6 @@
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local lsp = require 'lspconfig'
 local notify = require 'notify'
 
@@ -24,15 +27,14 @@ vim.lsp.handlers['window/showMessage'] = function(_, result, ctx)
   })
 end
 
--- Use on_attach function to only map the keys after the language
+-- Use init_buffer function to only map the keys after the language
 -- server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local init_buffer = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
-
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -76,11 +78,29 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 -- nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- The list of available servers is defined here:
-local servers = { "rust_analyzer", "vimls" }
-lsp.vimls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
+require("mason-lspconfig").setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+    lsp[server_name].setup {
+      on_attach = init_buffer,
+      capabilities = capabilities,
+    }
+  end,
+  -- Dedicated handlers for specific LSPs
+  ["ltex"] = function()
+    -- LTeX - Grammar and spell checking
+    lsp.ltex.setup {
+      on_attach = function(client, bufnr)
+        -- ltex_extra allows ltex to do things like "add to dictionary" and
+        -- other code actions
+        require("ltex_extra").setup()
+        vim.api.nvim_buf_set_option(bufnr, "spell", false)
+        init_buffer(client, bufnr)
+      end
+    }
+  end
 }
 
 local settings = {
@@ -113,13 +133,13 @@ if local_config ~= nil then
 end
 
 lsp.rust_analyzer.setup {
-  on_attach = on_attach,
+  on_attach = init_buffer,
   capabilities = capabilities,
   settings = settings
 }
 
 lsp.slint_lsp.setup {
-    on_attach = on_attach,
+    on_attach = init_buffer,
     cmd = { "slint-lsp", "--backend", "GL" },
     capabilities = capabilities,
     flags = {
@@ -131,12 +151,11 @@ local clangd_capabilities = capabilities
 clangd_capabilities.offsetEncoding = "utf-8"
 
 lsp.clangd.setup {
-    on_attach = on_attach,
+    on_attach = init_buffer,
     cmd = { "clangd", "--header-insertion=never" },
     capabilities = clangd_capabilities,
     flags = {
       debounce_text_changes = 150
     }
 }
-
 require("symbols-outline").setup({auto_close=true})

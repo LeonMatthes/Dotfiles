@@ -35,10 +35,17 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 
+" LSP server installer
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim' " LSP server manager
+" Improved LTeX
+Plug 'barreiroleo/ltex_extra.nvim'
+
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
+" Plugins local to this machine
 if !empty(glob("~/.config/nvim/plug.local.vim"))
   source ~/.config/nvim/plug.local.vim
 endif
