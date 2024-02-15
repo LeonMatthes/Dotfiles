@@ -4,11 +4,12 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'NLKNguyen/papercolor-theme'
 
 " convenience
 Plug 'machakann/vim-highlightedyank'
 Plug 'brenoprata10/nvim-highlight-colors'
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/which-key.nvim'
 
 " Language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -34,12 +35,25 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 
+" LSP server installer
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim' " LSP server manager
+" Improved LTeX
+Plug 'barreiroleo/ltex_extra.nvim'
+
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+" Plugins local to this machine
+if !empty(glob("~/.config/nvim/plug.local.vim"))
+  source ~/.config/nvim/plug.local.vim
+endif
+
 " File handling
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-" Disabled for neovim 0.8.0
-" See: https://github.com/tiagofumo/vim-nerdtree-syntax-highlight/issues/53
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " required by fzf.vim
 Plug 'junegunn/fzf.vim'
 
@@ -54,17 +68,10 @@ Plug 'tpope/vim-surround'
 
 " Source Control
 Plug 'airblade/vim-gitgutter'
-Plug 'antoinemadec/FixCursorHold.nvim'
-
-" Easier naviagtion
-Plug 'justinmk/vim-sneak'
 
 " Tmux integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
-
-" REPL in VIM
-Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -88,14 +95,25 @@ nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
 " ------------------- symbols-outline -----------------
 nnoremap <leader>so :SymbolsOutline<CR>
 
+"  Note: Must be set up BEFORE nvim-cmp
+if !empty(glob("~/.config/nvim/plugins.local.vim"))
+  source ~/.config/nvim/plugins.local.vim
+endif
+
 " -------------------- nvim-cmp (Autocomplete) -------
 luafile ~/.config/nvim/nvim-cmp.lua
 
 " --------------------- nvim nvim-lightbulb ------------
 autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
+" ---------------- nvim-dap --------------------------
+luafile ~/.config/nvim/nvim-dap.lua
+
 " --------------- NERDTree --------------------
-nnoremap <leader>t :NERDTreeToggle<CR>
+lua require('nvim-tree').setup { diagnostics = { enable = true, show_on_dirs=true, show_on_open_dirs=false } }
+lua require('nvim-web-devicons').setup { }
+
+nnoremap <leader>t :NvimTreeToggle<CR>
 
 " --------------- FZF -------------------------
 nnoremap <leader>sf :Files<CR>
@@ -149,3 +167,6 @@ function Compose()
 endfunction
 
 autocmd BufEnter * call Compose()
+
+" ---------------------- which-key ----------------------
+lua require('which-key').setup{}

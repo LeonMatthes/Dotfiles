@@ -15,3 +15,9 @@ right = ["diagnostics", "selections", "position", "position-percentage", "file-e
 mode.insert = "INSERT"
 mode.normal = "NORMAL"
 mode.select = "SELECT"
+
+[keys.normal]
+A-l = "select_next_sibling"
+A-h = "select_prev_sibling"
+A-j = "shrink_selection"
+A-k = "expand_selection"
