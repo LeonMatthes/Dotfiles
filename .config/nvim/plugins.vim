@@ -144,7 +144,7 @@ lua require("nvim-highlight-colors").setup { render = 'background' }
 " ----------------------- cmps -----------------------
 function Compose()
   if &modifiable && wordcount().bytes==0 && len(getreg("%")) > 0
-    0r! cmps --stdout %
+    0r! cmps --stdout "%"
   endif
 endfunction
 
