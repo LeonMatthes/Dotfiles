@@ -2,27 +2,49 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 local lsp = require 'lspconfig'
-local notify = require 'notify'
 
-require("notify").setup({
-  background_colour = "#282c34",
-})
+local fidget = require("fidget")
+local notification_config = require("fidget.notification").default_config
+notification_config.warn_annote = "⚠️ "
+notification_config.debug_annote = "🐛"
+notification_config.error_annote = "‼️ "
+notification_config.info_annote = "ℹ️ "
+
+fidget.setup(
+  {
+    progress = {
+      display = {
+        overrides = {
+          rust_analyzer = {
+            name = "Rust Analyzer",
+            icon = fidget.progress.display.for_icon(fidget.spinner.animate("dots", 2), "🦀"),
+          },
+        }
+      }
+    },
+    notification = {
+      configs = {
+        default = notification_config
+      }
+    }
+  })
+vim.notify = fidget.notify
 
 -- pretty LSP message notifications
 -- See: https://www.reddit.com/r/neovim/comments/sxlkua/what_are_some_good_nvimnotify_use_cases/
 vim.lsp.handlers['window/showMessage'] = function(_, result, ctx)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local lvl = ({
-    'ERROR',
-    'WARN',
-    'INFO',
-    'DEBUG',
+    vim.log.levels.ERROR,
+    vim.log.levels.WARN,
+    vim.log.levels.INFO,
+    vim.log.levels.DEBUG,
   })[result.type]
-  notify({ result.message }, lvl, {
+  vim.notify({ result.message }, lvl, {
     title = 'LSP | ' .. client.name,
     timeout = 10000,
     keep = function()
-      return lvl == 'ERROR' or lvl == 'WARN'
+      return lvl == vim.log.levels.ERROR or lvl == vim.log.levels.WARN
     end,
   })
 end
@@ -34,7 +56,7 @@ local init_buffer = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -51,6 +73,8 @@ local init_buffer = function(client, bufnr)
   buf_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>', opts)
+  buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>', opts)
   buf_set_keymap('n', '<leader>l', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{async=true}<CR>', opts)
   buf_set_keymap('n', '<Tab>', '<cmd>lua require("luasnip").jump()<CR>', opts)
@@ -82,7 +106,7 @@ require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
-  function (server_name) -- default handler (optional)
+  function(server_name)  -- default handler (optional)
     lsp[server_name].setup {
       on_attach = init_buffer,
       capabilities = capabilities,
@@ -107,7 +131,9 @@ local settings = {
   ["rust-analyzer"] = {
     diagnostics = { experimental = { enable = true } },
     check = {
-      command = "clippy"
+      workspace = false,
+      command = "check",
+      extraArgs = { "--tests" }
     }
   }
 }
@@ -118,17 +144,25 @@ if local_config ~= nil then
   local cfg = local_config()
 
   if cfg ~= nil then
+    local found_config = false
     if cfg["rust-analyzer"] ~= nil then
-      notify("Loaded local LSP config", "INFO")
+      found_config = true
+      vim.notify("Loaded local LSP config", vim.log.levels.INFO)
 
       for opt, val in pairs(cfg["rust-analyzer"]) do
         settings["rust-analyzer"][opt] = val
       end
-    else
-      notify("No rust-analyzer config in local LSP config", "ERROR")
+    end
+    if cfg["copilot"] ~= nil then
+      found_config = true
+      vim.notify("Enabling GH Copilot", vim.log.levels.INFO)
+      dofile('/home/kdab/.config/nvim/copilot-setup.lua')
+    end
+    if not found_config then
+      vim.notify("No config in local LSP config", vim.log.levels.ERROR)
     end
   else
-    notify("Local LSP config returned nil", "ERROR")
+    vim.notify("Local LSP config returned nil", vim.log.levels.ERROR)
   end
 end
 
@@ -138,24 +172,30 @@ lsp.rust_analyzer.setup {
   settings = settings
 }
 
+-- Broken in Qt 6.6 - keeps memory overflowing
+-- lsp.qmlls.setup {
+--   on_attach = init_buffer,
+--   capabilities = capabilities,
+--   settings = settings
+-- }
+
 lsp.slint_lsp.setup {
-    on_attach = init_buffer,
-    cmd = { "slint-lsp", "--backend", "GL" },
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150
-    }
+  on_attach = init_buffer,
+  cmd = { "slint-lsp", "--backend", "GL" },
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150
+  }
 }
 
 local clangd_capabilities = capabilities
 clangd_capabilities.offsetEncoding = "utf-8"
 
 lsp.clangd.setup {
-    on_attach = init_buffer,
-    cmd = { "clangd", "--header-insertion=never" },
-    capabilities = clangd_capabilities,
-    flags = {
-      debounce_text_changes = 150
-    }
+  on_attach = init_buffer,
+  cmd = { "clangd", "--header-insertion=never" },
+  capabilities = clangd_capabilities,
+  flags = {
+    debounce_text_changes = 150
+  }
 }
-require("symbols-outline").setup({auto_close=true})

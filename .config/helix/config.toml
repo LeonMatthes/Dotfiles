@@ -1,9 +1,10 @@
-theme="onedark"
+theme="catppuccin_macchiato"
 
 [editor]
 line-number="relative"
 bufferline = "multiple"
 color-modes = true
+true-color=true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -21,3 +22,4 @@ A-l = "select_next_sibling"
 A-h = "select_prev_sibling"
 A-j = "shrink_selection"
 A-k = "expand_selection"
+

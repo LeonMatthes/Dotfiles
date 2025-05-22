@@ -1,2 +1,5 @@
 .dotfiles
 **/.lspconfig.lua
+.envrc
+justfile
+.cmps/

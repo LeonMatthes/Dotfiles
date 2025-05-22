@@ -17,6 +17,11 @@
 
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "cmake.showOptionsMovedNotification": false,
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "editor.inlayHints.enabled": "offUnlessPressed"
 }
 

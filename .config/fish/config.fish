@@ -13,6 +13,9 @@ alias f='fuck'
 alias rm='echo "This is not the command you\'re looking for! Use trash <file> instead!"; :'
 alias ll='ls -Al'
 alias open='xdg-open'
+alias reloadconfig "source ~/.config/fish/config.fish"
+alias editconfig "nvim ~/.config/fish && reloadconfig"
+
 starship init fish | source
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'

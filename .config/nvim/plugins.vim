@@ -4,11 +4,12 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " convenience
 Plug 'machakann/vim-highlightedyank'
 Plug 'brenoprata10/nvim-highlight-colors'
-Plug 'rcarriga/nvim-notify'
+Plug 'j-hui/fidget.nvim'
 Plug 'folke/which-key.nvim'
 
 " Language support
@@ -24,7 +25,7 @@ Plug 'L3MON4D3/LuaSnip', {'tag': 'v1.0.0'}
 
 " LSP support
 Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/symbols-outline.nvim'
+Plug 'hedyhli/outline.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-buffer'
@@ -42,6 +43,7 @@ Plug 'williamboman/mason-lspconfig.nvim' " LSP server manager
 Plug 'barreiroleo/ltex_extra.nvim'
 
 " Debugger
+Plug 'nvim-neotest/nvim-nio'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
@@ -75,9 +77,11 @@ Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
+luafile ~/.config/nvim/plugins.lua
+
 " ------------------- Airline ---------------------
 let g:airline_powerline_fonts=1
-let g:airline_theme="onedark"
+let g:airline_theme="catppuccin"
 
 set laststatus=2
 
@@ -92,8 +96,8 @@ autocmd BufWritePre *.h lua vim.lsp.buf.format({async=false})
 
 nnoremap <leader>o :ClangdSwitchSourceHeader<CR>
 
-" ------------------- symbols-outline -----------------
-nnoremap <leader>so :SymbolsOutline<CR>
+" ------------------- outline for symbols -----------------
+nnoremap <leader>so :Outline<CR>
 
 "  Note: Must be set up BEFORE nvim-cmp
 if !empty(glob("~/.config/nvim/plugins.local.vim"))

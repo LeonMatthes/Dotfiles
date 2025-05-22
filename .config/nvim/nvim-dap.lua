@@ -66,4 +66,11 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- Launch.json
-require 'dap.ext.vscode'.load_launchjs(nil, { lldb = {'c', 'cpp', 'rust'}})
+function load_dap_config()
+  require 'dap.ext.vscode'.load_launchjs(nil, { lldb = {'c', 'cpp', 'rust'}})
+end
+
+local status, err = pcall(load_dap_config)
+if not status then
+  vim.notify(err, vim.log.levels.WARN)
+end
