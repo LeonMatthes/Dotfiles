@@ -5,6 +5,15 @@ line-number="relative"
 bufferline = "multiple"
 color-modes = true
 true-color=true
+# Minimum severity to show a diagnostic after the end of a line:
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+# Minimum severity to show a diagnostic on the primary cursor's line.
+# Note that `cursor-line` diagnostics are hidden in insert mode.
+cursor-line = "hint"
+# Minimum severity to show a diagnostic on other lines:
+other-lines = "error"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,6 +25,9 @@ right = ["diagnostics", "selections", "position", "position-percentage", "file-e
 mode.insert = "INSERT"
 mode.normal = "NORMAL"
 mode.select = "SELECT"
+
+[editor.lsp]
+display-progress-messages = true
 
 [keys.normal]
 A-l = "select_next_sibling"

@@ -45,6 +45,7 @@ Plug 'barreiroleo/ltex_extra.nvim'
 " Debugger
 Plug 'nvim-neotest/nvim-nio'
 Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-neotest/nvim-nio'
 Plug 'rcarriga/nvim-dap-ui'
 
 " Plugins local to this machine
