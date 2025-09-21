@@ -4,24 +4,23 @@
         "editor.wordWrap": "on"
     },
     "editor.minimap.enabled": false,
-    
     //Better spellchecking
     "cSpell.language": "de,en",
     "cSpell.diagnosticLevel": "Hint", //do not show up in problems panel
     "workbench.colorCustomizations": {
-
         // will change the color of three dots
         "editorHint.foreground": "#22cc22"
     },
-
-
-    "git.autofetch": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "cmake.showOptionsMovedNotification": false,
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer"
     },
-    "editor.inlayHints.enabled": "offUnlessPressed"
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ],
+    "rust-analyzer.cargo.noDefaultFeatures": true,
+    "editor.formatOnSave": true
 }
-

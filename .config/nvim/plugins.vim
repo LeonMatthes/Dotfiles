@@ -37,8 +37,8 @@ Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
 
 " LSP server installer
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim' " LSP server manager
+Plug 'mason-org/mason.nvim'
+Plug 'mason-org/mason-lspconfig.nvim' " LSP server manager
 " Improved LTeX
 Plug 'barreiroleo/ltex_extra.nvim'
 
