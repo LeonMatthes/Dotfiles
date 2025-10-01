@@ -88,9 +88,6 @@ set laststatus=2
 
 " --------------------  LSP config --------------------
 luafile ~/.config/nvim/lsp.lua
-" Show diagnostics when cursor is on them
-" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-autocmd Cursorhold * lua vim.diagnostic.open_float(0, {scope="line"})
 autocmd BufWritePre *.rs lua vim.lsp.buf.format({async=false})
 autocmd BufWritePre *.cpp lua vim.lsp.buf.format({async=false})
 autocmd BufWritePre *.h lua vim.lsp.buf.format({async=false})

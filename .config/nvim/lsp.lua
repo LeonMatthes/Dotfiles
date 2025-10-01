@@ -1,6 +1,3 @@
--- require("mason").setup()
--- require("mason-lspconfig").setup()
-
 local lsp = require 'lspconfig'
 
 local fidget = require("fidget")
@@ -49,9 +46,27 @@ vim.lsp.handlers['window/showMessage'] = function(_, result, ctx)
   })
 end
 
+-- Configure diagnostics
+vim.diagnostic.config({
+    virtual_text = {
+        spacing = 4,
+        prefix = "",
+        format = diagnostic_format,
+    },
+    signs = {
+        text = diagnostic_signs,
+    },
+    virtual_lines = {
+        current_line = true,
+        format = diagnostic_format,
+    },
+    underline = true,
+    severity_sort = true,
+})
+
 -- Use init_buffer function to only map the keys after the language
 -- server attaches to the current buffer
-local init_buffer = function(client, bufnr)
+local init_buffer = function(bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -80,6 +95,13 @@ local init_buffer = function(client, bufnr)
   buf_set_keymap('n', '<Tab>', '<cmd>lua require("luasnip").jump()<CR>', opts)
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    init_buffer(args.buf)
+  end
+  })
+
+
 --- Set symbols of LSP diagnostics
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -97,35 +119,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false,
     severity_sort = true
   })
-
-
--- nvim-cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require("mason-lspconfig").setup_handlers {
-  -- The first entry (without a key) will be the default handler
-  -- and will be called for each installed server that doesn't have
-  -- a dedicated handler.
-  function(server_name)  -- default handler (optional)
-    lsp[server_name].setup {
-      on_attach = init_buffer,
-      capabilities = capabilities,
-    }
-  end,
-  -- Dedicated handlers for specific LSPs
-  ["ltex"] = function()
-    -- LTeX - Grammar and spell checking
-    lsp.ltex.setup {
-      on_attach = function(client, bufnr)
-        -- ltex_extra allows ltex to do things like "add to dictionary" and
-        -- other code actions
-        require("ltex_extra").setup()
-        vim.api.nvim_buf_set_option(bufnr, "spell", false)
-        init_buffer(client, bufnr)
-      end
-    }
-  end
-}
 
 local settings = {
   ["rust-analyzer"] = {
@@ -166,36 +159,30 @@ if local_config ~= nil then
   end
 end
 
-lsp.rust_analyzer.setup {
-  on_attach = init_buffer,
-  capabilities = capabilities,
-  settings = settings
-}
+vim.lsp.config("rust_analyzer", {
+  settings = settings,
+})
 
--- Broken in Qt 6.6 - keeps memory overflowing
--- lsp.qmlls.setup {
---   on_attach = init_buffer,
---   capabilities = capabilities,
---   settings = settings
--- }
+vim.lsp.config("qmlls", {
+    settings = settings
+  })
 
-lsp.slint_lsp.setup {
-  on_attach = init_buffer,
-  cmd = { "slint-lsp", "--backend", "GL" },
-  capabilities = capabilities,
-  flags = {
-    debounce_text_changes = 150
-  }
-}
+vim.lsp.config("slint_lsp", {
+    cmd = { "slint-lsp", "--backend", "GL" },
+    flags = {
+      debounce_text_changes = 150
+    }
+  })
 
-local clangd_capabilities = capabilities
-clangd_capabilities.offsetEncoding = "utf-8"
+vim.lsp.config("clangd", {
+    on_attach = init_buffer,
+    cmd = { "clangd", "--header-insertion=never" },
+    flags = {
+      debounce_text_changes = 150
+    }
+  })
 
-lsp.clangd.setup {
-  on_attach = init_buffer,
-  cmd = { "clangd", "--header-insertion=never" },
-  capabilities = clangd_capabilities,
-  flags = {
-    debounce_text_changes = 150
-  }
-}
+vim.lsp.enable({"rust_analyzer", "clangd", "slint_lsp", "qmlls"})
+
+require("mason").setup()
+require("mason-lspconfig").setup()
