@@ -22,5 +22,6 @@
         "--header-insertion=never"
     ],
     "rust-analyzer.cargo.noDefaultFeatures": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "github.copilot.nextEditSuggestions.enabled": true
 }
