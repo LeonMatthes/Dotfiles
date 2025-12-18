@@ -4,6 +4,8 @@
 	email = leon@matthes.biz
 [core]
 	editor = nvim
+	pager = delta
+	excludesfile = ~/.gitignore
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -11,6 +13,8 @@
 	process = git-lfs filter-process
 [credential]
 	helper = store
+[push]
+	autoSetupRemote = true
 [pull]
 	rebase = false
 [init]
@@ -31,3 +35,21 @@
 	cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [mergetool]
 	keepBackup = false
+
+[interactive]
+	diffFilter = delta --color-only
+
+[include]
+	path = ~/.config/delta/catppuccin.gitconfig
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	line-numbers = true
+	features = "catppuccin-macchiato"
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+[alias]
+	push-force = push --force-with-lease --force-if-includes
