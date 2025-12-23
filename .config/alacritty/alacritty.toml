@@ -79,7 +79,12 @@ mods = "Control|Shift"
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
-mods = "Control|Shift"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control"
 
 [[keyboard.bindings]]
 action = "IncreaseFontSize"
@@ -628,11 +633,11 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-decorations = "none"
+decorations = "Full"
 dynamic_padding = false
 dynamic_title = true
 opacity = 1
-startup_mode = "Maximized"
+startup_mode = "Windowed"
 
 [window.dimensions]
 columns = 0
