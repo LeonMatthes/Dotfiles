@@ -11,6 +11,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'brenoprata10/nvim-highlight-colors'
 Plug 'j-hui/fidget.nvim'
 Plug 'folke/which-key.nvim'
+Plug 'chentoast/marks.nvim'
 
 " Language support
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -35,6 +36,10 @@ Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'onsails/lspkind.nvim'
 Plug 'kosayoda/nvim-lightbulb'
+
+" AI support
+Plug 'zbirenbaum/copilot.lua'
+Plug 'zbirenbaum/copilot-cmp'
 
 " LSP server installer
 Plug 'mason-org/mason.nvim'
@@ -74,7 +79,10 @@ Plug 'airblade/vim-gitgutter'
 
 " Tmux integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
+
+" Niri integration
+Plug 'andergrim/vim-niri-nav'
 
 call plug#end()
 
@@ -105,8 +113,8 @@ endif
 " -------------------- nvim-cmp (Autocomplete) -------
 luafile ~/.config/nvim/nvim-cmp.lua
 
-" --------------------- nvim nvim-lightbulb ------------
-autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+" " --------------------- nvim nvim-lightbulb ------------
+" autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 
 " ---------------- nvim-dap --------------------------
 luafile ~/.config/nvim/nvim-dap.lua
@@ -121,6 +129,8 @@ nnoremap <leader>t :NvimTreeToggle<CR>
 nnoremap <leader>sf :Files<CR>
 nnoremap <leader>sb :Buffers<CR>
 nnoremap <leader>s: :Commands<CR>
+nnoremap <leader>sg :GFiles?<CR>
+nnoremap <leader>sm :Marks<CR>
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -148,12 +158,12 @@ nnoremap <leader>q :Bdelete<CR>
 let g:NERDSpaceDelims = 1
 
 " --------------- vim-tmux-navigator -------------
-let g:tmux_navigator_no_mappings = 1
+" let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <C-a>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-a>j :TmuxNavigateDown<cr>
-nnoremap <silent> <C-a>k :TmuxNavigateUp<cr>
-nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
+" nnoremap <silent> <C-a>h :TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-a>j :TmuxNavigateDown<cr>
+" nnoremap <silent> <C-a>k :TmuxNavigateUp<cr>
+" nnoremap <silent> <C-a>l :TmuxNavigateRight<cr>
 
 " ----------------- vim-slime -------------------
 let g:slime_target = "neovim"

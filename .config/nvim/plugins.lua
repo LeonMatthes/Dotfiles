@@ -9,3 +9,9 @@ require("catppuccin").setup({
 require("outline").setup({
   outline_window = { auto_close = true }
 })
+
+require("nvim-lightbulb").setup({
+    autocmd = { enabled = true }
+})
+
+require("marks").setup ({})

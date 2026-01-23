@@ -155,7 +155,7 @@ if local_config ~= nil then
     if cfg["copilot"] ~= nil then
       found_config = true
       vim.notify("Enabling GH Copilot", vim.log.levels.INFO)
-      dofile('/home/kdab/.config/nvim/copilot-setup.lua')
+      dofile('/home/leon/.config/nvim/copilot-setup.lua')
     end
     if not found_config then
       vim.notify("No config in local LSP config", vim.log.levels.ERROR)
