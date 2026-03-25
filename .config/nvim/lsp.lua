@@ -131,7 +131,7 @@ local settings = {
     diagnostics = { experimental = { enable = true } },
     check = {
       workspace = false,
-      command = "check",
+      command = "clippy",
       extraArgs = { "--tests" }
     }
   }
@@ -154,7 +154,7 @@ if local_config ~= nil then
     end
     if cfg["copilot"] ~= nil then
       found_config = true
-      vim.notify("Enabling GH Copilot", vim.log.levels.INFO)
+      vim.notify("  Starting Copilot", vim.log.levels.INFO)
       dofile('/home/leon/.config/nvim/copilot-setup.lua')
     end
     if not found_config then
@@ -174,10 +174,10 @@ vim.lsp.config("qmlls", {
   })
 
 vim.lsp.config("slint_lsp", {
-    cmd = { "slint-lsp.sh", "--backend", "GL" },
+    cmd = { "slint-lsp.sh" },
     flags = {
       debounce_text_changes = 150
-    }
+    },
   })
 
 vim.lsp.config("clangd", {

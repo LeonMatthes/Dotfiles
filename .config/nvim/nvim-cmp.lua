@@ -70,7 +70,7 @@ cmp.setup({
         ), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
   sources = cmp.config.sources({
-      { name = 'copilot' },
+      { name = 'copilot', priority = -20 },
       { name = 'nvim_cmp' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lsp_signature_help' },
@@ -82,7 +82,23 @@ cmp.setup({
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
-    })
+    }),
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      -- offset somehow moves copilot always to the top...
+      -- cmp.config.compare.offset,
+      -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    }
+  }
 })
 
 -- Set configuration for specific filetype.
