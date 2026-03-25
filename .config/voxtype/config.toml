@@ -89,7 +89,7 @@ translate = false
 # Initial prompt to provide context for transcription
 # Use this to hint at terminology, proper nouns, or formatting conventions.
 # Example: "Technical discussion about Rust, TypeScript, and Kubernetes."
-# initial_prompt = ""
+initial_prompt = "Technical discussion about Rust, Slint, C++ and user interfaces (UI/UX/GUI). May include mentions of the Qt toolkit (pronounced cute). Other keywords: CI, PR, Lexer, Parser, Compiler, two-way binding, winit"
 
 # --- Multi-model settings ---
 #
@@ -166,7 +166,7 @@ type_delay_ms = 0
 
 # Convert newlines to Shift+Enter instead of regular Enter
 # Useful for applications where Enter submits (e.g., Cursor IDE, Slack, Discord)
-# shift_enter_newlines = false
+shift_enter_newlines = false
 
 # Pre/post output hooks (optional)
 # Commands to run before and after typing output. Useful for compositor integration.
@@ -202,7 +202,14 @@ on_transcription = true
 spoken_punctuation = true
 #
 # Custom word replacements (case-insensitive)
-replacements = { "co-pilot" = "copilot", "cool pilot" = "copilot" }
+[text.replacements]
+"co-pilot" = "copilot"
+"cool pilot" = "copilot"
+"coolpilot" = "copilot"
+"call pilot" = "copilot"
+"add sign, " = "@"
+"addsign, " = "@"
+"appsign, " = "@"
 
 # [vad]
 # Voice Activity Detection - filters silence-only recordings
