@@ -446,6 +446,7 @@ binds {
     // Mod repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q repeat=false hotkey-overlay-title="Kill rust-analyzer" { spawn "killall" "rust-analyzer"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -680,3 +681,5 @@ include "dms/binds.kdl"
 include "dms/colors.kdl"
 include "dms/wpblur.kdl"
 include "dms/alttab.kdl"
+include "dms/cursor.kdl"
+include "dms/outputs.kdl"
