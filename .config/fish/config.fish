@@ -52,3 +52,5 @@ function fish_user_key_bindings
     # Fix strange <C-c>-Behavior with multiline prompt
     bind \cc '__fish_cancel_commandline'
 end
+
+set -gx EDITOR nvim
