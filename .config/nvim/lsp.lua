@@ -190,5 +190,4 @@ vim.lsp.config("clangd", {
 
 vim.lsp.enable({"rust_analyzer", "clangd", "slint_lsp", "qmlls"})
 
-require("mason").setup()
-require("mason-lspconfig").setup()
+-- mason.setup() and mason-lspconfig.setup() are called by the lazy.nvim plugin spec
