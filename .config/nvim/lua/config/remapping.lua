@@ -75,16 +75,20 @@ map('v', '/', 'y/<C-r>=escape(@", \'/\\\')<CR>')
 map('v', '?', 'y?<C-r>=escape(@", \'?\\\')<CR>')
 
 local function get_visual_selection()
-  local old_reg = vim.fn.getreg('a')
-  vim.cmd('normal! gv"ay')
-  local raw = vim.fn.getreg('a')
-  vim.fn.setreg('a', old_reg)
+
+  local raw = table.concat(vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos(".")), "\n")
+
+  -- local old_reg = vim.fn.getreg('a')
+  -- vim.cmd('normal! gv"ay')
+  -- local raw = vim.fn.getreg('a')
+  -- vim.fn.setreg('a', old_reg)
   return vim.fn.substitute(vim.fn.escape(raw, '\\/.*$^~[]'), '\n', '\\\\n', 'g')
 end
 
 map('v', '<C-R>', function()
-  local sel = get_visual_selection()
-  vim.api.nvim_feedkeys(':<C-u>%s/' .. sel .. '//gc', 'n', false)
+  local selection = get_visual_selection()
+  local clear_cmd = vim.api.nvim_replace_termcodes('<C-u>', true, false, true)
+  vim.api.nvim_feedkeys(':' .. clear_cmd .. '%s/' .. selection .. '//gc', 'n', false)
   -- position cursor before the flags
   local back = vim.api.nvim_replace_termcodes('<left><left><left>', true, false, true)
   vim.api.nvim_feedkeys(back, 'n', false)
