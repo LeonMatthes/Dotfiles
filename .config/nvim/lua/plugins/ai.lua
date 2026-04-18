@@ -14,4 +14,20 @@ return {
     lazy = true,
     dependencies = { "zbirenbaum/copilot.lua" },
   },
+
+  {
+    "olimorris/codecompanion.nvim",
+    version = "^19.0.0",
+    opts = {
+      interactions = {
+        inline = {
+          model = "sonnet-4.6"
+        }
+      }
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }

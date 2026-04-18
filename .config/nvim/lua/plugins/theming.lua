@@ -11,6 +11,10 @@ return {
           shade = "dark",
           percentage = 0.15,
         },
+        integrations = {
+          cmp = true,
+          fidget = true
+        }
       })
       -- Apply colorscheme here (priority=1000) so lualine (priority=900) gets
       -- the correct catppuccin theme on its first load.
@@ -27,6 +31,12 @@ return {
       require("lualine").setup({
         options = {
           theme = require("catppuccin.utils.lualine")("macchiato"),
+        },
+        sections = {
+          lualine_b = {'diff', 'diagnostics'},
+          lualine_c = {
+            {'filename', path=1}
+          },
         },
       })
     end,

@@ -19,27 +19,33 @@ cmp.setup({
   -- offset the window to the left slightly
   window = {
     completion = {
-      -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
       col_offset=-1,
       side_padding=0,
     }
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format({
-      mode = 'symbol', -- show only symbol annotations
-      preset= 'codicons',
-      menu = ({
-          copilot = " ",
-          buffer = "",
-          nvim_lsp = "",
-          emoji = "",
-          luasnip = " ",
-          nvim_lsp_signature_help = "",
-          path = "",
-        }),
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-    })
+    format = function(entry, vim_item)
+            local kind = lspkind.cmp_format({
+              mode = 'symbol_text', -- show only symbol annotations
+              preset= 'codicons',
+              menu = ({
+                  copilot = " ",
+                  buffer = "",
+                  nvim_lsp = "",
+                  emoji = "",
+                  luasnip = " ",
+                  nvim_lsp_signature_help = "",
+                  path = "",
+                }),
+              maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            })(entry, vim_item)
+            -- Override the kind with the icon, which gives it the highlight
+            -- of the `kind`, but only displays the icon!
+            kind.kind = kind.icon
+            return kind
+    end
   },
   mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),

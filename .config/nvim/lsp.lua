@@ -128,7 +128,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 local settings = {
   ["rust-analyzer"] = {
-    diagnostics = { experimental = { enable = true } },
+    diagnostics = { experimental = { enable = false } },
     check = {
       workspace = false,
       command = "clippy",
