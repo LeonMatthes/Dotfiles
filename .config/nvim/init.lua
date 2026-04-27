@@ -17,12 +17,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set('n', '<leader>o', '<cmd>ClangdSwitchSourceHeader<CR>')
 
 -- cmps: fill empty buffer from template
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    if vim.bo.modifiable
-        and vim.fn.wordcount().bytes == 0
-        and #vim.fn.getreg('%') > 0 then
-      vim.cmd([[0r! cmps --stdout "%"]])
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+  callback = function(args)
+    local buf = args.buf
+    local name = vim.api.nvim_buf_get_name(buf)
+
+    if name == ""
+        or vim.bo[buf].buftype ~= ""
+        or not vim.bo[buf].modifiable
+        or vim.fn.isdirectory(name) == 1 then
+      return
     end
+
+    local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+    if #lines ~= 1 or lines[1] ~= "" then
+      return
+    end
+
+    vim.cmd(("silent 0read !cmps --stdout %s"):format(vim.fn.shellescape(name)))
   end,
 })
