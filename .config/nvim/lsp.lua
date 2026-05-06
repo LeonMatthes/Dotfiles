@@ -1,6 +1,5 @@
-local lsp = require 'lspconfig'
-
 local fidget = require("fidget")
+local methods = vim.lsp.protocol.Methods
 local notification_config = require("fidget.notification").default_config
 notification_config.warn_annote = "⚠️ "
 notification_config.debug_annote = "🐛"
@@ -171,7 +170,6 @@ vim.lsp.config("slint_lsp", {
   })
 
 vim.lsp.config("clangd", {
-    on_attach = init_buffer,
     cmd = { "clangd", "--header-insertion=never" },
     flags = {
       debounce_text_changes = 150

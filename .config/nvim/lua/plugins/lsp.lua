@@ -62,4 +62,12 @@ return {
       })
     end,
   },
+
+  {
+    "akioweh/lsp-document-highlight.nvim",
+    lazy = false,
+    opts = {
+      throttle = 50,
+    },
+  }
 }

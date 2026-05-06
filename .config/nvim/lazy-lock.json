@@ -16,6 +16,7 @@
   "fzf.vim": { "branch": "master", "commit": "b9624aa012ddcbae9e79964bfd30cc1fbe3cf263" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "llvm.vim": { "branch": "master", "commit": "0c5a25b1d79c939955e3fa52b086d0318b891b2b" },
+  "lsp-document-highlight.nvim": { "branch": "main", "commit": "a6bf150e994aa56b8aecf0b242ca757c7ce7de1f" },
   "lspkind.nvim": { "branch": "master", "commit": "c7274c48137396526b59d86232eabcdc7fed8a32" },
   "ltex_extra.nvim": { "branch": "master", "commit": "49ea83c231139d98b7c9668c99e7b4591421b056" },
   "lualine.nvim": { "branch": "master", "commit": "131a558e13f9f28b15cd235557150ccb23f89286" },
