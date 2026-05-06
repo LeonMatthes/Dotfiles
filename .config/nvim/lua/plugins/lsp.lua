@@ -52,4 +52,14 @@ return {
     "barreiroleo/ltex_extra.nvim",
     ft = { "tex", "latex", "markdown" },
   },
+
+  {
+    "arborist-ts/arborist.nvim",
+    config = function()
+      require("arborist").setup({
+        update_cadence = "weekly",
+        install_popular = false,
+      })
+    end,
+  },
 }

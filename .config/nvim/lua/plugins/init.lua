@@ -29,6 +29,9 @@ require("lazy").setup({
 }, {
   -- Use a lockfile to pin plugin versions
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
-  checker = { enabled = true },
+  checker = {
+    enabled = true,
+    notify = false
+  },
   change_detection = { notify = true },
 })

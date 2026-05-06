@@ -32,8 +32,9 @@ return {
         options = {
           theme = require("catppuccin.utils.lualine")("macchiato"),
         },
+        extensions = { 'lazy' },
         sections = {
-          lualine_b = {'diff', 'diagnostics'},
+          lualine_b = {'diff', 'diagnostics', 'lazy' },
           lualine_c = {
             {'filename', path=1}
           },
